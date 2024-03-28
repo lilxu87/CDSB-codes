@@ -1,0 +1,94 @@
+nohup: ignoring input
+2024-01-11 23:20:30.693734: I tensorflow/core/util/port.cc:110] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-01-11 23:20:30.748692: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-01-11 23:20:31.532647: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+/root/miniconda3/envs/CSBI/lib/python3.8/site-packages/tensorflow_addons/utils/tfa_eol_msg.py:23: UserWarning: 
+
+TensorFlow Addons (TFA) has ended development and introduction of new features.
+TFA has entered a minimal maintenance and release mode until a planned end of life in May 2024.
+Please modify downstream libraries to take dependencies from other repositories in our TensorFlow community (e.g. Keras, Keras-CV, and Keras-NLP). 
+
+For more information see: https://github.com/tensorflow/addons/issues/2807 
+
+  warnings.warn(
+2024-01-11 23:20:35.489123: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1635] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 21852 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 3090, pci bus id: 0000:d5:00.0, compute capability: 8.6
+set torch.multiprocessing.
+collecting trajectories under behavior policy
+================================================================================
+Colect Trajectories:   0%|          | 0/50 [00:00<?, ?it/s]2024-01-11 23:20:37.332435: I tensorflow/compiler/xla/stream_executor/cuda/cuda_blas.cc:637] TensorFloat-32 will be used for the matrix multiplication. This will only be logged once.
+Colect Trajectories:   2%|▏         | 1/50 [00:05<04:26,  5.44s/it]Colect Trajectories:   4%|▍         | 2/50 [00:10<04:11,  5.24s/it]Colect Trajectories:   6%|▌         | 3/50 [00:15<03:51,  4.93s/it]Colect Trajectories:   8%|▊         | 4/50 [00:20<03:53,  5.08s/it]Colect Trajectories:  10%|█         | 5/50 [00:26<04:12,  5.61s/it]Colect Trajectories:  12%|█▏        | 6/50 [00:33<04:24,  6.02s/it]Colect Trajectories:  14%|█▍        | 7/50 [00:40<04:23,  6.14s/it]Colect Trajectories:  16%|█▌        | 8/50 [00:45<04:04,  5.82s/it]Colect Trajectories:  18%|█▊        | 9/50 [00:49<03:32,  5.18s/it]Colect Trajectories:  20%|██        | 10/50 [00:54<03:32,  5.32s/it]Colect Trajectories:  22%|██▏       | 11/50 [01:00<03:39,  5.62s/it]Colect Trajectories:  24%|██▍       | 12/50 [01:05<03:25,  5.40s/it]Colect Trajectories:  26%|██▌       | 13/50 [01:11<03:25,  5.56s/it]Colect Trajectories:  28%|██▊       | 14/50 [01:18<03:32,  5.91s/it]Colect Trajectories:  30%|███       | 15/50 [01:25<03:35,  6.16s/it]Colect Trajectories:  32%|███▏      | 16/50 [01:31<03:34,  6.30s/it]Colect Trajectories:  34%|███▍      | 17/50 [01:35<03:02,  5.54s/it]Colect Trajectories:  36%|███▌      | 18/50 [01:39<02:40,  5.01s/it]Colect Trajectories:  38%|███▊      | 19/50 [01:45<02:42,  5.25s/it]Colect Trajectories:  40%|████      | 20/50 [01:51<02:47,  5.59s/it]Colect Trajectories:  42%|████▏     | 21/50 [01:57<02:45,  5.71s/it]Colect Trajectories:  44%|████▍     | 22/50 [02:04<02:47,  5.99s/it]Colect Trajectories:  46%|████▌     | 23/50 [02:10<02:39,  5.92s/it]Colect Trajectories:  48%|████▊     | 24/50 [02:13<02:17,  5.27s/it]Colect Trajectories:  50%|█████     | 25/50 [02:17<02:00,  4.81s/it]Colect Trajectories:  52%|█████▏    | 26/50 [02:23<02:04,  5.18s/it]Colect Trajectories:  54%|█████▍    | 27/50 [02:30<02:08,  5.58s/it]Colect Trajectories:  56%|█████▌    | 28/50 [02:36<02:09,  5.87s/it]Colect Trajectories:  58%|█████▊    | 29/50 [02:43<02:06,  6.04s/it]Colect Trajectories:  60%|██████    | 30/50 [02:47<01:50,  5.50s/it]Colect Trajectories:  62%|██████▏   | 31/50 [02:53<01:46,  5.58s/it]Colect Trajectories:  64%|██████▍   | 32/50 [02:59<01:45,  5.85s/it]Colect Trajectories:  66%|██████▌   | 33/50 [03:05<01:42,  6.02s/it]Colect Trajectories:  68%|██████▊   | 34/50 [03:12<01:39,  6.21s/it]Colect Trajectories:  70%|███████   | 35/50 [03:19<01:35,  6.38s/it]Colect Trajectories:  72%|███████▏  | 36/50 [03:24<01:25,  6.11s/it]Colect Trajectories:  74%|███████▍  | 37/50 [03:28<01:10,  5.43s/it]Colect Trajectories:  76%|███████▌  | 38/50 [03:32<00:59,  4.95s/it]Colect Trajectories:  78%|███████▊  | 39/50 [03:37<00:53,  4.90s/it]Colect Trajectories:  80%|████████  | 40/50 [03:43<00:52,  5.21s/it]Colect Trajectories:  82%|████████▏ | 41/50 [03:48<00:48,  5.33s/it]Colect Trajectories:  84%|████████▍ | 42/50 [03:55<00:45,  5.73s/it]Colect Trajectories:  86%|████████▌ | 43/50 [04:02<00:42,  6.05s/it]Colect Trajectories:  88%|████████▊ | 44/50 [04:09<00:37,  6.24s/it]Colect Trajectories:  90%|█████████ | 45/50 [04:16<00:32,  6.48s/it]Colect Trajectories:  92%|█████████▏| 46/50 [04:23<00:26,  6.66s/it]Colect Trajectories:  94%|█████████▍| 47/50 [04:30<00:20,  6.85s/it]Colect Trajectories:  96%|█████████▌| 48/50 [04:36<00:13,  6.73s/it]Colect Trajectories:  98%|█████████▊| 49/50 [04:40<00:05,  5.90s/it]Colect Trajectories: 100%|██████████| 50/50 [04:45<00:00,  5.51s/it]Colect Trajectories: 100%|██████████| 50/50 [04:45<00:00,  5.71s/it]2024-01-11 23:25:21.618998: I tensorflow/core/common_runtime/executor.cc:1197] [/device:CPU:0] (DEBUG INFO) Executor start aborting (this does not indicate an error and you can ignore this message): INVALID_ARGUMENT: You must feed a value for placeholder tensor 'Placeholder/_5' with dtype float and shape [50000]
+	 [[{{node Placeholder/_5}}]]
+
+================================================================================
+		DSBTraining start at 01_11_2024_232521
+================================================================================
+setting configurations...
+[warning] double check that you do not want to reuse FID evaluation trajectory for training!!!
+problem_name : mdp target_dim_range : None seed : 0 gpu : 0 load : /root/CSBI/results/mdp_Unetv2_Transformerv2_ve_mdp_train_dsm_imputation_v2_01_01_2024_014857_'backward_cnt'/stage_19_fb.npz dir : mdp_Unetv2_Transformerv2_ve_mdp_train_dsm_imputation_v2_01_11_2024_232521_'backward_cnt' group : 0 name : debug log_fn : results/mdp_Unetv2_Transformerv2_ve_mdp_train_dsm_imputation_v2_01_11_2024_232521_'backward_cnt' log_tb : True cpu : False sinusoid_dataset_path :  notes : 'backward_cnt' t0 : 0.001 T : 1.0 interval : 40 sde_type : ve sigma_max : 20 sigma_min : 0.001 beta_max : 20 beta_min : 0.001 scale_by_g : False normalize_loss : False forward_net : Unetv2 backward_net : Transformerv2 output_layer : conv1d train_method : mdp_train dsm_train_method : dsm_imputation_v2 use_arange_t : False reuse_traj : False use_corrector : False train_bs_x : 10 train_bs_t : 10 num_stage : 20 num_epoch : 6 num_corrector : 1 snr : 0.08 eval_itr : 200 samp_bs : 200 num_itr : 120 reset_ema_stage : None DSM_warmup : True backward_warmup_epoch : 12 rand_mask_miss_ratio : None rand_mask_rank : None train_bs_x_dsm : 64 train_bs_t_dsm : 1 num_itr_dsm : 10000 dataset_missing_ratio : 0.1 physio_nfold : 0 tba_features : None lr : 0.005 lr_f : 1e-06 lr_b : 5e-06 lr_dsm : 0.001 lr_gamma : 0.99 lr_step : 300 warmup_lr_step : 0 warmup_multiplier : 20 l2_norm : 0.0 optimizer : AdamW grad_clip : 1.0 noise_type : gaussian num_hutchinson_samp : 1 ema_decay : 0.99 FID_freq : 1 snapshot_freq : 1 ckpt_freq : 1 FID_ckpt : None num_FID_sample : 2000 num_eval_sample : 100 full_eval_every_stage : False compute_FID : False compute_NLL : False permute_batch : True imputation_eval : True eval_impute_function : imputation ckpt_file : None policies_json : None gcs_prefix : None action_dim : 6 in_size : (1, 41) input_size : (1, 41) out_size : 41 size : 41 state_dim : 17 training : {}
+ device : cuda:0 model_configs : {'mlp': hiddendim: 64
+inputdim: !!python/tuple
+- 1
+- 41
+name: Toyv3
+outputdim: 41
+, 'Unetv2': attention_layers:
+- 1
+- 2
+channel_mult: !!python/tuple
+- 1
+- 1
+- 1
+dropout: 0.0
+in_channels: 1
+input_size: !!python/tuple
+- 1
+- 41
+name: Unetv2
+num_channels: 32
+num_head: 2
+num_norm_groups: 32
+num_res_blocks: 2
+out_channel: 1
+, 'Transformerv2': channels: 64
+diffusion_embedding_dim: 128
+featureemb: 16
+input_size: !!python/tuple
+- 1
+- 41
+layers: 4
+name: Transformerv2
+nheads: 8
+output_layer: conv1d
+timeemb: 128
+} ckpt_path : results/mdp_Unetv2_Transformerv2_ve_mdp_train_dsm_imputation_v2_01_11_2024_232521_'backward_cnt' 
+build boundary distribution...
+train/test/val num samples 50000
+prior cov 400
+build base sde...
+build forward policy...
+layer_sizes:  [(1, 41), (1, 21), (1, 11)]
+number of parameters is 664.769k
+build backward policy...
+number of parameters is 413.521k
+[1m[32m#loading checkpoint /root/CSBI/results/mdp_Unetv2_Transformerv2_ve_mdp_train_dsm_imputation_v2_01_01_2024_014857_'backward_cnt'/stage_19_fb.npz...[0m
+Traceback (most recent call last):
+  File "train_stochastic.py", line 251, in <module>
+    app.run(main)
+  File "/root/miniconda3/envs/CSBI/lib/python3.8/site-packages/absl/app.py", line 308, in run
+    _run_main(main, args)
+  File "/root/miniconda3/envs/CSBI/lib/python3.8/site-packages/absl/app.py", line 254, in _run_main
+    sys.exit(main(argv))
+  File "train_stochastic.py", line 150, in main
+    run = Runner(opt, dataset)
+  File "/root/CSBI/runner.py", line 94, in __init__
+    util.restore_checkpoint(opt, self, opt.load)
+  File "/root/CSBI/util.py", line 109, in restore_checkpoint
+    checkpoint = torch.load(load_name,map_location=opt.device)
+  File "/root/miniconda3/envs/CSBI/lib/python3.8/site-packages/torch/serialization.py", line 791, in load
+    with _open_file_like(f, 'rb') as opened_file:
+  File "/root/miniconda3/envs/CSBI/lib/python3.8/site-packages/torch/serialization.py", line 271, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "/root/miniconda3/envs/CSBI/lib/python3.8/site-packages/torch/serialization.py", line 252, in __init__
+    super().__init__(open(name, mode))
+FileNotFoundError: [Errno 2] No such file or directory: "/root/CSBI/results/mdp_Unetv2_Transformerv2_ve_mdp_train_dsm_imputation_v2_01_01_2024_014857_'backward_cnt'/stage_19_fb.npz"

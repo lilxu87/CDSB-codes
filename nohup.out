@@ -1,0 +1,84 @@
+2023-09-27 19:16:03.801678: I tensorflow/core/util/port.cc:110] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2023-09-27 19:16:03.861559: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-09-27 19:16:04.739176: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+pybullet build time: May 20 2022 19:44:17
+Warning: Flow failed to import. Set the environment variable D4RL_SUPPRESS_IMPORT_ERROR=1 to suppress this message.
+No module named 'flow'
+/opt/anaconda3/envs/CSBI/lib/python3.8/site-packages/glfw/__init__.py:916: GLFWError: (65544) b'X11: Failed to open display localhost:10.0'
+  warnings.warn(message, GLFWError)
+Warning: CARLA failed to import. Set the environment variable D4RL_SUPPRESS_IMPORT_ERROR=1 to suppress this message.
+No module named 'carla'
+/opt/anaconda3/envs/CSBI/lib/python3.8/site-packages/tensorflow_addons/utils/tfa_eol_msg.py:23: UserWarning: 
+
+TensorFlow Addons (TFA) has ended development and introduction of new features.
+TFA has entered a minimal maintenance and release mode until a planned end of life in May 2024.
+Please modify downstream libraries to take dependencies from other repositories in our TensorFlow community (e.g. Keras, Keras-CV, and Keras-NLP). 
+
+For more information see: https://github.com/tensorflow/addons/issues/2807 
+
+  warnings.warn(
+2023-09-27 19:16:19.034754: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1635] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 22896 MB memory:  -> device: 0, name: Quadro RTX 6000, pci bus id: 0000:b3:00.0, compute capability: 7.5
+/opt/anaconda3/envs/CSBI/lib/python3.8/site-packages/numpy/core/fromnumeric.py:43: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray.
+  result = getattr(asarray(obj), method)(*args, **kwds)
+set torch.multiprocessing.
+[1m[33m================================================================================[0m
+[1m[33m		Training start at 09_27_2023_191619[0m
+[1m[33m================================================================================[0m
+[1m[35msetting configurations...[0m
+[1m[32m[warning] double check that you do not want to reuse FID evaluation trajectory for training!!![0m
+[1m[32mproblem_name[0m : [1m[33mmdp[0m [1m[32mtarget_dim_range[0m : [1m[33mNone[0m [1m[32mseed[0m : [1m[33m0[0m [1m[32mgpu[0m : [1m[33m0[0m [1m[32mload[0m : [1m[33m/home/caohaoqun/CSBI_replicant/results/mdp_Unetv2_Unetv2_ve_mdp_train_dsm_imputation_v2_09_27_2023_154302_'backward_cnt'/stage_19_fb.npz[0m [1m[32mdir[0m : [1m[33mmdp_Unetv2_Unetv2_ve_mdp_train_dsm_imputation_v2_09_27_2023_191619_'backward_cnt'[0m [1m[32mgroup[0m : [1m[33m0[0m [1m[32mname[0m : [1m[33mdebug[0m [1m[32mlog_fn[0m : [1m[33mresults/mdp_Unetv2_Unetv2_ve_mdp_train_dsm_imputation_v2_09_27_2023_191619_'backward_cnt'[0m [1m[32mlog_tb[0m : [1m[33mTrue[0m [1m[32mcpu[0m : [1m[33mFalse[0m [1m[32msinusoid_dataset_path[0m : [1m[33m[0m [1m[32mnotes[0m : [1m[33m'backward_cnt'[0m [1m[32mt0[0m : [1m[33m0.001[0m [1m[32mT[0m : [1m[33m1.0[0m [1m[32minterval[0m : [1m[33m40[0m [1m[32msde_type[0m : [1m[33mve[0m [1m[32msigma_max[0m : [1m[33m20[0m [1m[32msigma_min[0m : [1m[33m0.001[0m [1m[32mbeta_max[0m : [1m[33m20[0m [1m[32mbeta_min[0m : [1m[33m0.001[0m [1m[32mscale_by_g[0m : [1m[33mFalse[0m [1m[32mnormalize_loss[0m : [1m[33mFalse[0m [1m[32mforward_net[0m : [1m[33mUnetv2[0m [1m[32mbackward_net[0m : [1m[33mUnetv2[0m [1m[32moutput_layer[0m : [1m[33mconv1d[0m [1m[32mtrain_method[0m : [1m[33mmdp_train[0m [1m[32mdsm_train_method[0m : [1m[33mdsm_imputation_v2[0m [1m[32muse_arange_t[0m : [1m[33mFalse[0m [1m[32mreuse_traj[0m : [1m[33mFalse[0m [1m[32muse_corrector[0m : [1m[33mFalse[0m [1m[32mtrain_bs_x[0m : [1m[33m10[0m [1m[32mtrain_bs_t[0m : [1m[33m10[0m [1m[32mnum_stage[0m : [1m[33m20[0m [1m[32mnum_epoch[0m : [1m[33m6[0m [1m[32mnum_corrector[0m : [1m[33m1[0m [1m[32msnr[0m : [1m[33m0.08[0m [1m[32meval_itr[0m : [1m[33m200[0m [1m[32msamp_bs[0m : [1m[33m100[0m [1m[32mnum_itr[0m : [1m[33m120[0m [1m[32mreset_ema_stage[0m : [1m[33mNone[0m [1m[32mDSM_warmup[0m : [1m[33mTrue[0m [1m[32mbackward_warmup_epoch[0m : [1m[33m12[0m [1m[32mrand_mask_miss_ratio[0m : [1m[33mNone[0m [1m[32mrand_mask_rank[0m : [1m[33mNone[0m [1m[32mtrain_bs_x_dsm[0m : [1m[33m32[0m [1m[32mtrain_bs_t_dsm[0m : [1m[33m1[0m [1m[32mnum_itr_dsm[0m : [1m[33m1[0m [1m[32mdataset_missing_ratio[0m : [1m[33m0.1[0m [1m[32mphysio_nfold[0m : [1m[33m0[0m [1m[32mtba_features[0m : [1m[33mNone[0m [1m[32mlr[0m : [1m[33m0.0005[0m [1m[32mlr_f[0m : [1m[33m1e-06[0m [1m[32mlr_b[0m : [1m[33m5e-06[0m [1m[32mlr_dsm[0m : [1m[33m0.001[0m [1m[32mlr_gamma[0m : [1m[33m0.99[0m [1m[32mlr_step[0m : [1m[33m300[0m [1m[32mwarmup_lr_step[0m : [1m[33m0[0m [1m[32mwarmup_multiplier[0m : [1m[33m20[0m [1m[32ml2_norm[0m : [1m[33m0.0[0m [1m[32moptimizer[0m : [1m[33mAdamW[0m [1m[32mgrad_clip[0m : [1m[33m1.0[0m [1m[32mnoise_type[0m : [1m[33mgaussian[0m [1m[32mnum_hutchinson_samp[0m : [1m[33m1[0m [1m[32mema_decay[0m : [1m[33m0.99[0m [1m[32mFID_freq[0m : [1m[33m1[0m [1m[32msnapshot_freq[0m : [1m[33m1[0m [1m[32mckpt_freq[0m : [1m[33m1[0m [1m[32mFID_ckpt[0m : [1m[33mNone[0m [1m[32mnum_FID_sample[0m : [1m[33m2000[0m [1m[32mnum_eval_sample[0m : [1m[33m100[0m [1m[32mfull_eval_every_stage[0m : [1m[33mFalse[0m [1m[32mcompute_FID[0m : [1m[33mFalse[0m [1m[32mcompute_NLL[0m : [1m[33mFalse[0m [1m[32mpermute_batch[0m : [1m[33mTrue[0m [1m[32mimputation_eval[0m : [1m[33mTrue[0m [1m[32meval_impute_function[0m : [1m[33mimputation[0m [1m[32mckpt_file[0m : [1m[33mNone[0m [1m[32mpolicies_json[0m : [1m[33mNone[0m [1m[32mgcs_prefix[0m : [1m[33mNone[0m [1m[32maction_dim[0m : [1m[33m6[0m [1m[32min_size[0m : [1m[33m(1, 41)[0m [1m[32minput_size[0m : [1m[33m(1, 41)[0m [1m[32mout_size[0m : [1m[33m41[0m [1m[32msize[0m : [1m[33m41[0m [1m[32mstate_dim[0m : [1m[33m17[0m [1m[32mtraining[0m : [1m[33m{}
+[0m [1m[32mdevice[0m : [1m[33mcuda:0[0m [1m[32mmodel_configs[0m : [1m[33m{'mlp': hiddendim: 64
+inputdim: !!python/tuple
+- 1
+- 41
+name: Toyv3
+outputdim: 41
+, 'Unetv2': attention_layers:
+- 1
+- 2
+channel_mult: !!python/tuple
+- 1
+- 1
+- 1
+dropout: 0.0
+in_channels: 1
+input_size: !!python/tuple
+- 1
+- 41
+name: Unetv2
+num_channels: 32
+num_head: 2
+num_norm_groups: 32
+num_res_blocks: 2
+out_channel: 1
+, 'Transformerv2': channels: 64
+diffusion_embedding_dim: 128
+featureemb: 16
+input_size: !!python/tuple
+- 1
+- 41
+layers: 4
+name: Transformerv2
+nheads: 8
+output_layer: conv1d
+timeemb: 128
+}[0m [1m[32mckpt_path[0m : [1m[33mresults/mdp_Unetv2_Unetv2_ve_mdp_train_dsm_imputation_v2_09_27_2023_191619_'backward_cnt'[0m 
+[1m[35mbuild boundary distribution...[0m
+train/test/val num samples 313710
+prior cov 400
+[1m[35mbuild base sde...[0m
+[1m[35mbuild forward policy...[0m
+layer_sizes:  [(1, 41), (1, 21), (1, 11)]
+[1m[31mnumber of parameters is 664.769k[0m
+[1m[35mbuild backward policy...[0m
+layer_sizes:  [(1, 41), (1, 21), (1, 11)]
+[1m[31mnumber of parameters is 664.769k[0m
+[1m[32m#loading checkpoint /home/caohaoqun/CSBI_replicant/results/mdp_Unetv2_Unetv2_ve_mdp_train_dsm_imputation_v2_09_27_2023_154302_'backward_cnt'/stage_19_fb.npz...[0m
+state_dict keys: dict_keys(['z_f', 'optimizer_f', 'ema_f', 'z_b', 'optimizer_b', 'ema_b'])
+[1m[32m#successfully loaded all the modules[0m
+[1m[32m#loading form ema shadow parameter for polices[0m
+[1m[35m#######summary of checkpoint##########[0m
+[1m[31mReset optimizer, ema, and scheduler.[0m
+save opt:results/mdp_Unetv2_Unetv2_ve_mdp_train_dsm_imputation_v2_09_27_2023_191619_'backward_cnt'/opt.yaml
+Processing:   0%|                                                          | 0/1000 [00:00<?, ?it/s]Processing:   0%|                                                  | 1/1000 [00:01<23:54,  1.44s/it]Processing:   0%|1                                                 | 2/1000 [00:02<15:50,  1.05it/s]Processing:   0%|1                                                 | 3/1000 [00:02<13:14,  1.25it/s]Processing:   0%|2                                                 | 4/1000 [00:03<12:02,  1.38it/s]Processing:   0%|2                                                 | 5/1000 [00:03<11:20,  1.46it/s]Processing:   1%|3                                                 | 6/1000 [00:04<10:58,  1.51it/s]Processing:   1%|3                                                 | 7/1000 [00:05<10:41,  1.55it/s]Processing:   1%|4                                                 | 8/1000 [00:05<10:30,  1.57it/s]Processing:   1%|4                                                 | 9/1000 [00:06<10:23,  1.59it/s]Processing:   1%|4                                                | 10/1000 [00:06<10:17,  1.60it/s]Processing:   1%|5                                                | 11/1000 [00:07<10:13,  1.61it/s]Processing:   1%|5                                                | 12/1000 [00:08<10:10,  1.62it/s]Processing:   1%|6                                                | 13/1000 [00:08<10:07,  1.62it/s]Processing:   1%|6                                                | 14/1000 [00:09<10:06,  1.63it/s]Processing:   2%|7                                                | 15/1000 [00:10<10:04,  1.63it/s]Processing:   2%|7                                                | 16/1000 [00:10<10:03,  1.63it/s]Processing:   2%|8                                                | 17/1000 [00:11<10:03,  1.63it/s]Processing:   2%|8                                                | 18/1000 [00:11<10:02,  1.63it/s]Processing:   2%|9                                                | 19/1000 [00:12<10:01,  1.63it/s]Processing:   2%|9                                                | 20/1000 [00:13<10:00,  1.63it/s]Processing:   2%|#                                                | 21/1000 [00:13<09:59,  1.63it/s]Processing:   2%|#                                                | 22/1000 [00:14<09:59,  1.63it/s]Processing:   2%|#1                                               | 23/1000 [00:14<09:58,  1.63it/s]Processing:   2%|#1                                               | 24/1000 [00:15<09:58,  1.63it/s]

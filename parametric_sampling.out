@@ -1,0 +1,785 @@
+nohup: 忽略输入
+2023-12-29 19:44:36.242532: I tensorflow/core/util/port.cc:110] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2023-12-29 19:44:36.322711: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-12-29 19:44:37.167244: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+set torch.multiprocessing.
+================================================================================
+		Training start at 12_29_2023_194438
+================================================================================
+setting configurations...
+[warning] double check that you do not want to reuse FID evaluation trajectory for training!!!
+problem_name : parametric target_dim_range : None seed : 0 gpu : 0 load : None dir : parametric_Unetv2_Transformerv2_ve_alternate_imputation_v2_dsm_imputation_v2_12_29_2023_194438_'backward_cnt' group : 0 name : debug log_fn : results/parametric_Unetv2_Transformerv2_ve_alternate_imputation_v2_dsm_imputation_v2_12_29_2023_194438_'backward_cnt' log_tb : True cpu : False sinusoid_dataset_path :  notes : 'backward_cnt' t0 : 0.001 T : 1.0 interval : 40 sde_type : ve sigma_max : 20 sigma_min : 0.001 beta_max : 20 beta_min : 0.001 scale_by_g : False normalize_loss : False forward_net : Unetv2 backward_net : Transformerv2 output_layer : conv1d train_method : alternate_imputation_v2 dsm_train_method : dsm_imputation_v2 use_arange_t : False reuse_traj : False use_corrector : False train_bs_x : 50 train_bs_t : 50 num_stage : 10 num_epoch : 6 num_corrector : 1 snr : 0.08 eval_itr : 200 samp_bs : 200 num_itr : 120 reset_ema_stage : None DSM_warmup : True backward_warmup_epoch : 12 rand_mask_miss_ratio : None rand_mask_rank : None train_bs_x_dsm : 128 train_bs_t_dsm : 1 num_itr_dsm : 5000 dataset_missing_ratio : 0.1 physio_nfold : 0 tba_features : None lr : 0.005 lr_f : 1e-06 lr_b : 5e-06 lr_dsm : 0.001 lr_gamma : 0.99 lr_step : 300 warmup_lr_step : 0 warmup_multiplier : 20 l2_norm : 0.0 optimizer : AdamW grad_clip : 1.0 noise_type : gaussian num_hutchinson_samp : 1 ema_decay : 0.99 FID_freq : 1 snapshot_freq : 1 ckpt_freq : 1 FID_ckpt : None num_FID_sample : 2000 num_eval_sample : 100 full_eval_every_stage : False compute_FID : False compute_NLL : False permute_batch : True imputation_eval : True eval_impute_function : imputation ckpt_file : None policies_json : None gcs_prefix : None a : -5 b : 5 in_size : 2 input_size : (1, 2) mu : 2 out_size : 2 output_size : (1, 2) sigma : 0 training : {}
+ device : cuda:0 model_configs : {'mlp': hiddendim: 64
+inputdim: &id001 !!python/tuple
+- 1
+- 2
+name: Toyv3
+outputdim: *id001
+, 'Unetv2': attention_layers:
+- 1
+- 2
+channel_mult: !!python/tuple
+- 1
+- 1
+- 1
+dropout: 0.0
+in_channels: 1
+input_size: !!python/tuple
+- 1
+- 2
+name: Unetv2
+num_channels: 32
+num_head: 2
+num_norm_groups: 32
+num_res_blocks: 2
+out_channel: 1
+, 'Transformerv2': channels: 64
+diffusion_embedding_dim: 128
+featureemb: 16
+input_size: !!python/tuple
+- 1
+- 2
+layers: 4
+name: Transformerv2
+nheads: 8
+output_layer: conv1d
+timeemb: 128
+} ckpt_path : results/parametric_Unetv2_Transformerv2_ve_alternate_imputation_v2_dsm_imputation_v2_12_29_2023_194438_'backward_cnt' 
+build boundary distribution...
+train/test/val num samples 10000
+prior cov 400
+build base sde...
+build forward policy...
+layer_sizes:  [(1, 2), (1, 1), (0, 0)]
+number of parameters is 664.769k
+build backward policy...
+number of parameters is 413.521k
+save opt:results/parametric_Unetv2_Transformerv2_ve_alternate_imputation_v2_dsm_imputation_v2_12_29_2023_194438_'backward_cnt'/opt.yaml
+train/test/val num samples 10000
+[DSM backward] train_it 1/5000	| lr:1.000e-03 | loss:17.2477 | avg_loss:17.2477 | time:0:00:02.24
+[DSM backward] train_it 51/5000	| lr:1.000e-03 | loss:12.9074 | avg_loss:14.8644 | time:0:00:04.93
+[DSM backward] train_it 101/5000	| lr:1.000e-03 | loss:11.5042 | avg_loss:13.7293 | time:0:00:07.62
+[DSM backward] train_it 151/5000	| lr:1.000e-03 | loss:12.1059 | avg_loss:13.0438 | time:0:00:10.29
+[DSM backward] train_it 201/5000	| lr:1.000e-03 | loss:7.8017 | avg_loss:12.4406 | time:0:00:12.98
+[DSM backward] train_it 251/5000	| lr:1.000e-03 | loss:8.9728 | avg_loss:12.1487 | time:0:00:15.65
+[DSM backward] train_it 301/5000	| lr:1.000e-03 | loss:9.0888 | avg_loss:11.8548 | time:0:00:18.33
+[DSM backward] train_it 351/5000	| lr:1.000e-03 | loss:8.7666 | avg_loss:11.5896 | time:0:00:21.01
+[DSM backward] train_it 401/5000	| lr:1.000e-03 | loss:9.4679 | avg_loss:11.3967 | time:0:00:23.69
+[DSM backward] train_it 451/5000	| lr:1.000e-03 | loss:9.1145 | avg_loss:11.1970 | time:0:00:26.37
+[DSM backward] train_it 501/5000	| lr:1.000e-03 | loss:10.5026 | avg_loss:11.1088 | time:0:00:29.06
+[DSM backward] train_it 551/5000	| lr:1.000e-03 | loss:7.4397 | avg_loss:10.9700 | time:0:00:31.75
+[DSM backward] train_it 601/5000	| lr:1.000e-03 | loss:12.0132 | avg_loss:10.8344 | time:0:00:34.44
+[DSM backward] train_it 651/5000	| lr:1.000e-03 | loss:10.4967 | avg_loss:10.7316 | time:0:00:37.12
+[DSM backward] train_it 701/5000	| lr:1.000e-03 | loss:8.3772 | avg_loss:10.6402 | time:0:00:39.74
+[DSM backward] train_it 751/5000	| lr:1.000e-03 | loss:9.4323 | avg_loss:10.5541 | time:0:00:42.37
+[DSM backward] train_it 801/5000	| lr:1.000e-03 | loss:9.6070 | avg_loss:10.4609 | time:0:00:45.02
+[DSM backward] train_it 851/5000	| lr:1.000e-03 | loss:12.6615 | avg_loss:10.3963 | time:0:00:47.64
+[DSM backward] train_it 901/5000	| lr:1.000e-03 | loss:6.8262 | avg_loss:10.3537 | time:0:00:50.37
+[DSM backward] train_it 951/5000	| lr:1.000e-03 | loss:9.1704 | avg_loss:10.2827 | time:0:00:53.11
+[DSM backward] train_it 1001/5000	| lr:1.000e-03 | loss:6.4505 | avg_loss:10.1882 | time:0:00:55.83
+[DSM backward] train_it 1051/5000	| lr:1.000e-03 | loss:10.9832 | avg_loss:10.1237 | time:0:00:57.36
+[DSM backward] train_it 1101/5000	| lr:1.000e-03 | loss:6.6537 | avg_loss:10.0511 | time:0:00:58.81
+[DSM backward] train_it 1151/5000	| lr:1.000e-03 | loss:7.8847 | avg_loss:9.9721 | time:0:01:01.11
+[DSM backward] train_it 1201/5000	| lr:1.000e-03 | loss:6.4662 | avg_loss:9.8926 | time:0:01:03.80
+[DSM backward] train_it 1251/5000	| lr:1.000e-03 | loss:9.4716 | avg_loss:9.8356 | time:0:01:06.50
+[DSM backward] train_it 1301/5000	| lr:1.000e-03 | loss:10.6620 | avg_loss:9.7821 | time:0:01:09.22
+[DSM backward] train_it 1351/5000	| lr:1.000e-03 | loss:9.5589 | avg_loss:9.7090 | time:0:01:11.94
+[DSM backward] train_it 1401/5000	| lr:1.000e-03 | loss:7.3825 | avg_loss:9.6636 | time:0:01:14.63
+[DSM backward] train_it 1451/5000	| lr:1.000e-03 | loss:6.3914 | avg_loss:9.6196 | time:0:01:17.34
+[DSM backward] train_it 1501/5000	| lr:1.000e-03 | loss:12.1305 | avg_loss:9.5948 | time:0:01:20.04
+[DSM backward] train_it 1551/5000	| lr:1.000e-03 | loss:9.5105 | avg_loss:9.5449 | time:0:01:22.72
+[DSM backward] train_it 1601/5000	| lr:1.000e-03 | loss:7.3987 | avg_loss:9.5105 | time:0:01:25.42
+[DSM backward] train_it 1651/5000	| lr:1.000e-03 | loss:5.9295 | avg_loss:9.4632 | time:0:01:28.12
+[DSM backward] train_it 1701/5000	| lr:1.000e-03 | loss:7.9446 | avg_loss:9.4199 | time:0:01:30.82
+[DSM backward] train_it 1751/5000	| lr:1.000e-03 | loss:10.4703 | avg_loss:9.3745 | time:0:01:33.51
+[DSM backward] train_it 1801/5000	| lr:1.000e-03 | loss:10.5911 | avg_loss:9.3457 | time:0:01:36.22
+[DSM backward] train_it 1851/5000	| lr:1.000e-03 | loss:6.9360 | avg_loss:9.3107 | time:0:01:38.93
+[DSM backward] train_it 1901/5000	| lr:1.000e-03 | loss:7.3698 | avg_loss:9.2670 | time:0:01:41.65
+[DSM backward] train_it 1951/5000	| lr:1.000e-03 | loss:8.4822 | avg_loss:9.2254 | time:0:01:44.35
+[DSM backward] train_it 2001/5000	| lr:1.000e-03 | loss:8.0515 | avg_loss:9.1755 | time:0:01:47.03
+[DSM backward] train_it 2051/5000	| lr:1.000e-03 | loss:4.5669 | avg_loss:9.1364 | time:0:01:49.76
+[DSM backward] train_it 2101/5000	| lr:1.000e-03 | loss:9.5680 | avg_loss:9.0980 | time:0:01:52.46
+[DSM backward] train_it 2151/5000	| lr:1.000e-03 | loss:7.1976 | avg_loss:9.0686 | time:0:01:55.15
+[DSM backward] train_it 2201/5000	| lr:1.000e-03 | loss:7.2800 | avg_loss:9.0370 | time:0:01:57.88
+[DSM backward] train_it 2251/5000	| lr:1.000e-03 | loss:6.2271 | avg_loss:9.0006 | time:0:02:00.61
+[DSM backward] train_it 2301/5000	| lr:1.000e-03 | loss:4.0937 | avg_loss:8.9754 | time:0:02:03.30
+[DSM backward] train_it 2351/5000	| lr:1.000e-03 | loss:6.7607 | avg_loss:8.9575 | time:0:02:06.01
+[DSM backward] train_it 2401/5000	| lr:1.000e-03 | loss:8.0112 | avg_loss:8.9252 | time:0:02:08.72
+[DSM backward] train_it 2451/5000	| lr:1.000e-03 | loss:9.4533 | avg_loss:8.9023 | time:0:02:11.42
+[DSM backward] train_it 2501/5000	| lr:1.000e-03 | loss:6.3504 | avg_loss:8.8805 | time:0:02:14.15
+[DSM backward] train_it 2551/5000	| lr:1.000e-03 | loss:6.6951 | avg_loss:8.8692 | time:0:02:16.83
+[DSM backward] train_it 2601/5000	| lr:1.000e-03 | loss:7.0283 | avg_loss:8.8413 | time:0:02:19.53
+[DSM backward] train_it 2651/5000	| lr:1.000e-03 | loss:5.3153 | avg_loss:8.8189 | time:0:02:22.22
+[DSM backward] train_it 2701/5000	| lr:1.000e-03 | loss:5.2552 | avg_loss:8.7945 | time:0:02:24.92
+[DSM backward] train_it 2751/5000	| lr:1.000e-03 | loss:5.6015 | avg_loss:8.7602 | time:0:02:27.63
+[DSM backward] train_it 2801/5000	| lr:1.000e-03 | loss:8.8875 | avg_loss:8.7267 | time:0:02:30.30
+[DSM backward] train_it 2851/5000	| lr:1.000e-03 | loss:9.1531 | avg_loss:8.7002 | time:0:02:33.00
+[DSM backward] train_it 2901/5000	| lr:1.000e-03 | loss:5.5565 | avg_loss:8.6674 | time:0:02:35.69
+[DSM backward] train_it 2951/5000	| lr:1.000e-03 | loss:6.6168 | avg_loss:8.6432 | time:0:02:38.37
+[DSM backward] train_it 3001/5000	| lr:1.000e-03 | loss:7.3660 | avg_loss:8.6149 | time:0:02:41.07
+[DSM backward] train_it 3051/5000	| lr:1.000e-03 | loss:5.6732 | avg_loss:8.5954 | time:0:02:43.75
+[DSM backward] train_it 3101/5000	| lr:1.000e-03 | loss:8.6919 | avg_loss:8.5695 | time:0:02:46.44
+[DSM backward] train_it 3151/5000	| lr:1.000e-03 | loss:6.9611 | avg_loss:8.5437 | time:0:02:49.14
+[DSM backward] train_it 3201/5000	| lr:1.000e-03 | loss:7.8425 | avg_loss:8.5260 | time:0:02:51.83
+[DSM backward] train_it 3251/5000	| lr:1.000e-03 | loss:7.0885 | avg_loss:8.5029 | time:0:02:54.51
+[DSM backward] train_it 3301/5000	| lr:1.000e-03 | loss:4.3687 | avg_loss:8.4776 | time:0:02:57.21
+[DSM backward] train_it 3351/5000	| lr:1.000e-03 | loss:3.3267 | avg_loss:8.4544 | time:0:02:59.88
+[DSM backward] train_it 3401/5000	| lr:1.000e-03 | loss:7.1509 | avg_loss:8.4295 | time:0:03:02.57
+[DSM backward] train_it 3451/5000	| lr:1.000e-03 | loss:5.6643 | avg_loss:8.4065 | time:0:03:05.27
+[DSM backward] train_it 3501/5000	| lr:1.000e-03 | loss:4.4850 | avg_loss:8.3864 | time:0:03:07.96
+[DSM backward] train_it 3551/5000	| lr:1.000e-03 | loss:6.6221 | avg_loss:8.3690 | time:0:03:10.66
+[DSM backward] train_it 3601/5000	| lr:1.000e-03 | loss:5.2408 | avg_loss:8.3531 | time:0:03:13.33
+[DSM backward] train_it 3651/5000	| lr:1.000e-03 | loss:7.4975 | avg_loss:8.3294 | time:0:03:16.00
+[DSM backward] train_it 3701/5000	| lr:1.000e-03 | loss:8.8188 | avg_loss:8.3067 | time:0:03:18.69
+[DSM backward] train_it 3751/5000	| lr:1.000e-03 | loss:6.3026 | avg_loss:8.2861 | time:0:03:21.39
+[DSM backward] train_it 3801/5000	| lr:1.000e-03 | loss:8.3498 | avg_loss:8.2717 | time:0:03:24.07
+[DSM backward] train_it 3851/5000	| lr:1.000e-03 | loss:6.8257 | avg_loss:8.2571 | time:0:03:26.76
+[DSM backward] train_it 3901/5000	| lr:1.000e-03 | loss:6.2675 | avg_loss:8.2395 | time:0:03:29.45
+[DSM backward] train_it 3951/5000	| lr:1.000e-03 | loss:5.9478 | avg_loss:8.2244 | time:0:03:32.11
+[DSM backward] train_it 4001/5000	| lr:1.000e-03 | loss:7.6681 | avg_loss:8.2063 | time:0:03:34.82
+[DSM backward] train_it 4051/5000	| lr:1.000e-03 | loss:6.5388 | avg_loss:8.1913 | time:0:03:37.50
+[DSM backward] train_it 4101/5000	| lr:1.000e-03 | loss:6.2736 | avg_loss:8.1747 | time:0:03:40.19
+[DSM backward] train_it 4151/5000	| lr:1.000e-03 | loss:5.0950 | avg_loss:8.1557 | time:0:03:42.89
+[DSM backward] train_it 4201/5000	| lr:1.000e-03 | loss:5.8220 | avg_loss:8.1434 | time:0:03:45.59
+[DSM backward] train_it 4251/5000	| lr:1.000e-03 | loss:6.8499 | avg_loss:8.1270 | time:0:03:48.29
+[DSM backward] train_it 4301/5000	| lr:1.000e-03 | loss:6.0485 | avg_loss:8.1046 | time:0:03:50.98
+[DSM backward] train_it 4351/5000	| lr:1.000e-03 | loss:5.6494 | avg_loss:8.0877 | time:0:03:53.67
+[DSM backward] train_it 4401/5000	| lr:1.000e-03 | loss:6.7015 | avg_loss:8.0653 | time:0:03:56.36
+[DSM backward] train_it 4451/5000	| lr:1.000e-03 | loss:5.1687 | avg_loss:8.0515 | time:0:03:59.06
+[DSM backward] train_it 4501/5000	| lr:1.000e-03 | loss:5.5384 | avg_loss:8.0393 | time:0:04:01.74
+[DSM backward] train_it 4551/5000	| lr:1.000e-03 | loss:5.3542 | avg_loss:8.0301 | time:0:04:04.44
+[DSM backward] train_it 4601/5000	| lr:1.000e-03 | loss:6.1712 | avg_loss:8.0084 | time:0:04:07.13
+[DSM backward] train_it 4651/5000	| lr:1.000e-03 | loss:8.4576 | avg_loss:7.9971 | time:0:04:09.83
+[DSM backward] train_it 4701/5000	| lr:1.000e-03 | loss:7.6531 | avg_loss:7.9824 | time:0:04:12.53
+[DSM backward] train_it 4751/5000	| lr:1.000e-03 | loss:6.1818 | avg_loss:7.9653 | time:0:04:15.21
+[DSM backward] train_it 4801/5000	| lr:1.000e-03 | loss:7.2180 | avg_loss:7.9572 | time:0:04:17.90
+[DSM backward] train_it 4851/5000	| lr:1.000e-03 | loss:6.3386 | avg_loss:7.9459 | time:0:04:20.60
+[DSM backward] train_it 4901/5000	| lr:1.000e-03 | loss:6.1196 | avg_loss:7.9307 | time:0:04:23.29
+[DSM backward] train_it 4951/5000	| lr:1.000e-03 | loss:4.7581 | avg_loss:7.9159 | time:0:04:25.97
+checkpoint saved: results/parametric_Unetv2_Transformerv2_ve_alternate_imputation_v2_dsm_imputation_v2_12_29_2023_194438_'backward_cnt'/stage_0_dsm.npz
+save opt:results/parametric_Unetv2_Transformerv2_ve_alternate_imputation_v2_dsm_imputation_v2_12_29_2023_194438_'backward_cnt'/opt.yaml
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:   2%|▍                  | 1/40 [00:00<00:04,  8.70it/s]Forward SDE sampling...:  18%|███▎               | 7/40 [00:00<00:00, 34.37it/s]Forward SDE sampling...:  32%|█████▊            | 13/40 [00:00<00:00, 42.91it/s]Forward SDE sampling...:  48%|████████▌         | 19/40 [00:00<00:00, 46.89it/s]Forward SDE sampling...:  62%|███████████▎      | 25/40 [00:00<00:00, 49.31it/s]Forward SDE sampling...:  78%|█████████████▉    | 31/40 [00:00<00:00, 50.42it/s]Forward SDE sampling...:  92%|████████████████▋ | 37/40 [00:00<00:00, 51.57it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 47.14it/s]/home/caohaoqun/CSBI_replicant/runner.py:552: UserWarning: torch.nn.utils.clip_grad_norm is now deprecated in favor of torch.nn.utils.clip_grad_norm_.
+  torch.nn.utils.clip_grad_norm(policy.parameters(), opt.grad_clip)
+
+[SB backward] stage 1/10 | ep 1/12 | iter 1/1440 | lr:9.92e-04 | loss:-0.2163 | nelbo:-0.2163 | 0:04:30.14
+[SB backward] stage 1/10 | ep 1/12 | iter 51/1440 | lr:9.92e-04 | loss:-0.1153 | nelbo:-0.1153 | 0:04:35.03
+[SB backward] stage 1/10 | ep 1/12 | iter 101/1440 | lr:9.92e-04 | loss:-0.1608 | nelbo:-0.1608 | 0:04:39.92
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  12%|██▍                | 5/40 [00:00<00:00, 47.93it/s]Forward SDE sampling...:  28%|████▉             | 11/40 [00:00<00:00, 51.14it/s]Forward SDE sampling...:  42%|███████▋          | 17/40 [00:00<00:00, 52.07it/s]Forward SDE sampling...:  57%|██████████▎       | 23/40 [00:00<00:00, 52.72it/s]Forward SDE sampling...:  72%|█████████████     | 29/40 [00:00<00:00, 52.82it/s]Forward SDE sampling...:  88%|███████████████▊  | 35/40 [00:00<00:00, 52.88it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 52.36it/s]
+[SB backward] stage 1/10 | ep 2/12 | iter 121/1440 | lr:9.85e-04 | loss:-0.1475 | nelbo:-0.1475 | 0:04:42.80
+[SB backward] stage 1/10 | ep 2/12 | iter 171/1440 | lr:9.85e-04 | loss:-0.1606 | nelbo:-0.1606 | 0:04:45.53
+[SB backward] stage 1/10 | ep 2/12 | iter 221/1440 | lr:9.85e-04 | loss:-0.1392 | nelbo:-0.1392 | 0:04:48.97
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  12%|██▍                | 5/40 [00:00<00:00, 47.65it/s]Forward SDE sampling...:  28%|████▉             | 11/40 [00:00<00:00, 50.57it/s]Forward SDE sampling...:  42%|███████▋          | 17/40 [00:00<00:00, 51.61it/s]Forward SDE sampling...:  57%|██████████▎       | 23/40 [00:00<00:00, 51.73it/s]Forward SDE sampling...:  72%|█████████████     | 29/40 [00:00<00:00, 52.27it/s]Forward SDE sampling...:  88%|███████████████▊  | 35/40 [00:00<00:00, 52.12it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 51.91it/s]
+[SB backward] stage 1/10 | ep 3/12 | iter 241/1440 | lr:9.77e-04 | loss:-0.1550 | nelbo:-0.1550 | 0:04:51.84
+[SB backward] stage 1/10 | ep 3/12 | iter 291/1440 | lr:9.77e-04 | loss:-0.1233 | nelbo:-0.1233 | 0:04:54.51
+[SB backward] stage 1/10 | ep 3/12 | iter 341/1440 | lr:9.77e-04 | loss:-0.1548 | nelbo:-0.1548 | 0:04:57.10
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  20%|███▊               | 8/40 [00:00<00:00, 79.15it/s]Forward SDE sampling...:  40%|███████▏          | 16/40 [00:00<00:00, 79.33it/s]Forward SDE sampling...:  62%|███████████▎      | 25/40 [00:00<00:00, 80.71it/s]Forward SDE sampling...:  85%|███████████████▎  | 34/40 [00:00<00:00, 79.73it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 80.44it/s]
+[SB backward] stage 1/10 | ep 4/12 | iter 361/1440 | lr:9.70e-04 | loss:-0.1439 | nelbo:-0.1439 | 0:04:58.81
+[SB backward] stage 1/10 | ep 4/12 | iter 411/1440 | lr:9.70e-04 | loss:-0.1289 | nelbo:-0.1289 | 0:05:01.43
+[SB backward] stage 1/10 | ep 4/12 | iter 461/1440 | lr:9.70e-04 | loss:-0.1815 | nelbo:-0.1815 | 0:05:04.05
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  20%|███▊               | 8/40 [00:00<00:00, 77.32it/s]Forward SDE sampling...:  40%|███████▏          | 16/40 [00:00<00:00, 78.86it/s]Forward SDE sampling...:  60%|██████████▊       | 24/40 [00:00<00:00, 78.80it/s]Forward SDE sampling...:  80%|██████████████▍   | 32/40 [00:00<00:00, 78.45it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 79.31it/s]
+[SB backward] stage 1/10 | ep 5/12 | iter 481/1440 | lr:9.62e-04 | loss:-0.1477 | nelbo:-0.1477 | 0:05:05.77
+[SB backward] stage 1/10 | ep 5/12 | iter 531/1440 | lr:9.62e-04 | loss:-0.1606 | nelbo:-0.1606 | 0:05:08.40
+[SB backward] stage 1/10 | ep 5/12 | iter 581/1440 | lr:9.62e-04 | loss:-0.1369 | nelbo:-0.1369 | 0:05:13.12
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  15%|██▊                | 6/40 [00:00<00:00, 49.85it/s]Forward SDE sampling...:  28%|████▉             | 11/40 [00:00<00:00, 45.07it/s]Forward SDE sampling...:  42%|███████▋          | 17/40 [00:00<00:00, 47.52it/s]Forward SDE sampling...:  55%|█████████▉        | 22/40 [00:00<00:00, 45.51it/s]Forward SDE sampling...:  70%|████████████▌     | 28/40 [00:00<00:00, 47.19it/s]Forward SDE sampling...:  82%|██████████████▊   | 33/40 [00:00<00:00, 45.58it/s]Forward SDE sampling...:  98%|█████████████████▌| 39/40 [00:00<00:00, 47.41it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 46.99it/s]
+[SB backward] stage 1/10 | ep 6/12 | iter 601/1440 | lr:9.55e-04 | loss:-0.1546 | nelbo:-0.1546 | 0:05:16.09
+[SB backward] stage 1/10 | ep 6/12 | iter 651/1440 | lr:9.55e-04 | loss:-0.1731 | nelbo:-0.1731 | 0:05:20.80
+[SB backward] stage 1/10 | ep 6/12 | iter 701/1440 | lr:9.55e-04 | loss:-0.2064 | nelbo:-0.2064 | 0:05:25.45
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  10%|█▉                 | 4/40 [00:00<00:00, 36.32it/s]Forward SDE sampling...:  25%|████▌             | 10/40 [00:00<00:00, 45.55it/s]Forward SDE sampling...:  38%|██████▊           | 15/40 [00:00<00:00, 43.63it/s]Forward SDE sampling...:  52%|█████████▍        | 21/40 [00:00<00:00, 46.68it/s]Forward SDE sampling...:  65%|███████████▋      | 26/40 [00:00<00:00, 44.95it/s]Forward SDE sampling...:  80%|██████████████▍   | 32/40 [00:00<00:00, 46.89it/s]Forward SDE sampling...:  92%|████████████████▋ | 37/40 [00:00<00:00, 45.45it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 45.57it/s]
+[SB backward] stage 1/10 | ep 7/12 | iter 721/1440 | lr:9.48e-04 | loss:-0.1928 | nelbo:-0.1928 | 0:05:28.45
+[SB backward] stage 1/10 | ep 7/12 | iter 771/1440 | lr:9.48e-04 | loss:-0.2140 | nelbo:-0.2140 | 0:05:33.21
+[SB backward] stage 1/10 | ep 7/12 | iter 821/1440 | lr:9.48e-04 | loss:-0.2013 | nelbo:-0.2013 | 0:05:37.97
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  12%|██▍                | 5/40 [00:00<00:00, 44.42it/s]Forward SDE sampling...:  28%|████▉             | 11/40 [00:00<00:00, 48.95it/s]Forward SDE sampling...:  42%|███████▋          | 17/40 [00:00<00:00, 50.62it/s]Forward SDE sampling...:  57%|██████████▎       | 23/40 [00:00<00:00, 50.81it/s]Forward SDE sampling...:  72%|█████████████     | 29/40 [00:00<00:00, 51.39it/s]Forward SDE sampling...:  88%|███████████████▊  | 35/40 [00:00<00:00, 51.51it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 50.92it/s]
+[SB backward] stage 1/10 | ep 8/12 | iter 841/1440 | lr:9.40e-04 | loss:-0.1621 | nelbo:-0.1621 | 0:05:40.91
+[SB backward] stage 1/10 | ep 8/12 | iter 891/1440 | lr:9.40e-04 | loss:-0.2322 | nelbo:-0.2322 | 0:05:45.80
+[SB backward] stage 1/10 | ep 8/12 | iter 941/1440 | lr:9.40e-04 | loss:-0.2435 | nelbo:-0.2435 | 0:05:50.66
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  12%|██▍                | 5/40 [00:00<00:00, 47.14it/s]Forward SDE sampling...:  28%|████▉             | 11/40 [00:00<00:00, 49.84it/s]Forward SDE sampling...:  42%|███████▋          | 17/40 [00:00<00:00, 51.25it/s]Forward SDE sampling...:  57%|██████████▎       | 23/40 [00:00<00:00, 51.40it/s]Forward SDE sampling...:  72%|█████████████     | 29/40 [00:00<00:00, 51.87it/s]Forward SDE sampling...:  88%|███████████████▊  | 35/40 [00:00<00:00, 51.92it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 51.49it/s]
+[SB backward] stage 1/10 | ep 9/12 | iter 961/1440 | lr:9.33e-04 | loss:-0.2061 | nelbo:-0.2061 | 0:05:53.58
+[SB backward] stage 1/10 | ep 9/12 | iter 1011/1440 | lr:9.33e-04 | loss:-0.2322 | nelbo:-0.2322 | 0:05:58.40
+[SB backward] stage 1/10 | ep 9/12 | iter 1061/1440 | lr:9.33e-04 | loss:-0.2324 | nelbo:-0.2324 | 0:06:03.23
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  12%|██▍                | 5/40 [00:00<00:00, 46.43it/s]Forward SDE sampling...:  28%|████▉             | 11/40 [00:00<00:00, 49.84it/s]Forward SDE sampling...:  42%|███████▋          | 17/40 [00:00<00:00, 50.93it/s]Forward SDE sampling...:  57%|██████████▎       | 23/40 [00:00<00:00, 51.74it/s]Forward SDE sampling...:  72%|█████████████     | 29/40 [00:00<00:00, 51.98it/s]Forward SDE sampling...:  88%|███████████████▊  | 35/40 [00:00<00:00, 52.25it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 51.56it/s]
+[SB backward] stage 1/10 | ep 10/12 | iter 1081/1440 | lr:9.26e-04 | loss:-0.2350 | nelbo:-0.2350 | 0:06:06.15
+[SB backward] stage 1/10 | ep 10/12 | iter 1131/1440 | lr:9.26e-04 | loss:-0.2155 | nelbo:-0.2155 | 0:06:10.99
+[SB backward] stage 1/10 | ep 10/12 | iter 1181/1440 | lr:9.26e-04 | loss:-0.2171 | nelbo:-0.2171 | 0:06:15.85
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  12%|██▍                | 5/40 [00:00<00:00, 44.61it/s]Forward SDE sampling...:  28%|████▉             | 11/40 [00:00<00:00, 49.31it/s]Forward SDE sampling...:  42%|███████▋          | 17/40 [00:00<00:00, 50.52it/s]Forward SDE sampling...:  57%|██████████▎       | 23/40 [00:00<00:00, 51.01it/s]Forward SDE sampling...:  72%|█████████████     | 29/40 [00:00<00:00, 51.23it/s]Forward SDE sampling...:  88%|███████████████▊  | 35/40 [00:00<00:00, 51.57it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 50.89it/s]
+[SB backward] stage 1/10 | ep 11/12 | iter 1201/1440 | lr:9.19e-04 | loss:-0.2925 | nelbo:-0.2925 | 0:06:18.77
+[SB backward] stage 1/10 | ep 11/12 | iter 1251/1440 | lr:9.19e-04 | loss:-0.2702 | nelbo:-0.2702 | 0:06:23.54
+[SB backward] stage 1/10 | ep 11/12 | iter 1301/1440 | lr:9.19e-04 | loss:-0.2661 | nelbo:-0.2661 | 0:06:28.40
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  12%|██▍                | 5/40 [00:00<00:00, 48.07it/s]Forward SDE sampling...:  28%|████▉             | 11/40 [00:00<00:00, 49.76it/s]Forward SDE sampling...:  42%|███████▋          | 17/40 [00:00<00:00, 50.87it/s]Forward SDE sampling...:  57%|██████████▎       | 23/40 [00:00<00:00, 51.24it/s]Forward SDE sampling...:  72%|█████████████     | 29/40 [00:00<00:00, 51.86it/s]Forward SDE sampling...:  88%|███████████████▊  | 35/40 [00:00<00:00, 51.84it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 51.42it/s]
+[SB backward] stage 1/10 | ep 12/12 | iter 1321/1440 | lr:9.12e-04 | loss:-0.2638 | nelbo:-0.2638 | 0:06:31.35
+[SB backward] stage 1/10 | ep 12/12 | iter 1371/1440 | lr:9.12e-04 | loss:-0.2175 | nelbo:-0.2175 | 0:06:36.15
+[SB backward] stage 1/10 | ep 12/12 | iter 1421/1440 | lr:9.12e-04 | loss:-0.2244 | nelbo:-0.2244 | 0:06:40.85
+[1m[31mReset optimizer, ema, and scheduler.[0m
+  0%|                                                                         | 0/1 [00:00<?, ?it/s]100%|█████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  1.27it/s]100%|█████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  1.27it/s]
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  20%|███▌              | 8/40 [00:00<00:00, 79.17it/s]backward SDE sampling...:  60%|█████████▌      | 24/40 [00:00<00:00, 125.89it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 140.93it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 132.07it/s]/home/caohaoqun/CSBI_replicant/runner.py:372: UserWarning: torch.nn.utils.clip_grad_norm is now deprecated in favor of torch.nn.utils.clip_grad_norm_.
+  torch.nn.utils.clip_grad_norm(policy.parameters(), opt.grad_clip)
+
+[SB forward] stage 1/10 | ep 1/18 | iter 1/2160 | lr:1.00e-06 | loss:0.0000 | nelbo:3.7138 | 1:49:16.61
+[SB forward] stage 1/10 | ep 1/18 | iter 51/2160 | lr:1.00e-06 | loss:-0.0001 | nelbo:3.4956 | 1:49:28.62
+[SB forward] stage 1/10 | ep 1/18 | iter 101/2160 | lr:1.00e-06 | loss:-0.0001 | nelbo:3.6240 | 1:49:40.51
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  40%|██████▍         | 16/40 [00:00<00:00, 150.58it/s]backward SDE sampling...:  80%|████████████▊   | 32/40 [00:00<00:00, 154.53it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 154.50it/s]
+[SB forward] stage 1/10 | ep 2/18 | iter 121/2160 | lr:9.92e-07 | loss:-0.0001 | nelbo:3.4359 | 1:49:45.67
+[SB forward] stage 1/10 | ep 2/18 | iter 171/2160 | lr:9.92e-07 | loss:-0.0002 | nelbo:3.7415 | 1:49:57.53
+[SB forward] stage 1/10 | ep 2/18 | iter 221/2160 | lr:9.92e-07 | loss:-0.0002 | nelbo:3.3948 | 1:50:09.35
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  38%|██████          | 15/40 [00:00<00:00, 148.91it/s]backward SDE sampling...:  78%|████████████▍   | 31/40 [00:00<00:00, 153.27it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 153.36it/s]
+[SB forward] stage 1/10 | ep 3/18 | iter 241/2160 | lr:9.85e-07 | loss:-0.0002 | nelbo:3.7467 | 1:50:14.54
+[SB forward] stage 1/10 | ep 3/18 | iter 291/2160 | lr:9.85e-07 | loss:-0.0004 | nelbo:3.8892 | 1:50:26.39
+[SB forward] stage 1/10 | ep 3/18 | iter 341/2160 | lr:9.85e-07 | loss:-0.0008 | nelbo:3.9340 | 1:50:38.21
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  38%|██████          | 15/40 [00:00<00:00, 148.86it/s]backward SDE sampling...:  78%|████████████▍   | 31/40 [00:00<00:00, 153.21it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 153.25it/s]
+[SB forward] stage 1/10 | ep 4/18 | iter 361/2160 | lr:9.77e-07 | loss:-0.0006 | nelbo:3.8793 | 1:50:43.39
+[SB forward] stage 1/10 | ep 4/18 | iter 411/2160 | lr:9.77e-07 | loss:-0.0008 | nelbo:3.6358 | 1:50:55.35
+[SB forward] stage 1/10 | ep 4/18 | iter 461/2160 | lr:9.77e-07 | loss:-0.0008 | nelbo:3.6406 | 1:51:07.27
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  38%|██████          | 15/40 [00:00<00:00, 148.19it/s]backward SDE sampling...:  78%|████████████▍   | 31/40 [00:00<00:00, 153.21it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 153.27it/s]
+[SB forward] stage 1/10 | ep 5/18 | iter 481/2160 | lr:9.70e-07 | loss:-0.0006 | nelbo:3.5082 | 1:51:12.50
+[SB forward] stage 1/10 | ep 5/18 | iter 531/2160 | lr:9.70e-07 | loss:-0.0006 | nelbo:3.2666 | 1:51:24.48
+[SB forward] stage 1/10 | ep 5/18 | iter 581/2160 | lr:9.70e-07 | loss:-0.0008 | nelbo:3.6948 | 1:51:36.40
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  38%|██████          | 15/40 [00:00<00:00, 146.87it/s]backward SDE sampling...:  78%|████████████▍   | 31/40 [00:00<00:00, 152.06it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 152.14it/s]
+[SB forward] stage 1/10 | ep 6/18 | iter 601/2160 | lr:9.62e-07 | loss:-0.0010 | nelbo:3.5109 | 1:51:41.62
+[SB forward] stage 1/10 | ep 6/18 | iter 651/2160 | lr:9.62e-07 | loss:-0.0007 | nelbo:3.3688 | 1:51:53.56
+[SB forward] stage 1/10 | ep 6/18 | iter 701/2160 | lr:9.62e-07 | loss:-0.0009 | nelbo:3.6195 | 1:52:05.47
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  38%|██████          | 15/40 [00:00<00:00, 149.30it/s]backward SDE sampling...:  78%|████████████▍   | 31/40 [00:00<00:00, 153.94it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 154.04it/s]
+[SB forward] stage 1/10 | ep 7/18 | iter 721/2160 | lr:9.55e-07 | loss:-0.0007 | nelbo:3.7999 | 1:52:10.71
+[SB forward] stage 1/10 | ep 7/18 | iter 771/2160 | lr:9.55e-07 | loss:-0.0007 | nelbo:3.8241 | 1:52:22.64
+[SB forward] stage 1/10 | ep 7/18 | iter 821/2160 | lr:9.55e-07 | loss:-0.0010 | nelbo:3.7741 | 1:52:34.55
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  40%|██████▍         | 16/40 [00:00<00:00, 152.05it/s]backward SDE sampling...:  80%|████████████▊   | 32/40 [00:00<00:00, 154.89it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 154.86it/s]
+[SB forward] stage 1/10 | ep 8/18 | iter 841/2160 | lr:9.48e-07 | loss:-0.0009 | nelbo:3.8342 | 1:52:39.77
+[SB forward] stage 1/10 | ep 8/18 | iter 891/2160 | lr:9.48e-07 | loss:-0.0010 | nelbo:3.4638 | 1:52:51.67
+[SB forward] stage 1/10 | ep 8/18 | iter 941/2160 | lr:9.48e-07 | loss:-0.0009 | nelbo:3.3454 | 1:53:03.61
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  38%|██████          | 15/40 [00:00<00:00, 147.42it/s]backward SDE sampling...:  78%|████████████▍   | 31/40 [00:00<00:00, 152.76it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 152.84it/s]
+[SB forward] stage 1/10 | ep 9/18 | iter 961/2160 | lr:9.40e-07 | loss:-0.0014 | nelbo:3.8342 | 1:53:08.88
+[SB forward] stage 1/10 | ep 9/18 | iter 1011/2160 | lr:9.40e-07 | loss:-0.0014 | nelbo:3.5566 | 1:53:20.85
+[SB forward] stage 1/10 | ep 9/18 | iter 1061/2160 | lr:9.40e-07 | loss:-0.0011 | nelbo:3.1633 | 1:53:32.83
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  38%|██████          | 15/40 [00:00<00:00, 147.98it/s]backward SDE sampling...:  78%|████████████▍   | 31/40 [00:00<00:00, 153.24it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 153.30it/s]
+[SB forward] stage 1/10 | ep 10/18 | iter 1081/2160 | lr:9.33e-07 | loss:-0.0012 | nelbo:3.5054 | 1:53:38.08
+[SB forward] stage 1/10 | ep 10/18 | iter 1131/2160 | lr:9.33e-07 | loss:-0.0011 | nelbo:3.4936 | 1:53:50.06
+[SB forward] stage 1/10 | ep 10/18 | iter 1181/2160 | lr:9.33e-07 | loss:-0.0019 | nelbo:3.7967 | 1:54:02.04
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  38%|██████          | 15/40 [00:00<00:00, 149.84it/s]backward SDE sampling...:  78%|████████████▍   | 31/40 [00:00<00:00, 153.93it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 153.99it/s]
+[SB forward] stage 1/10 | ep 11/18 | iter 1201/2160 | lr:9.26e-07 | loss:-0.0010 | nelbo:3.5440 | 1:54:07.29
+[SB forward] stage 1/10 | ep 11/18 | iter 1251/2160 | lr:9.26e-07 | loss:-0.0012 | nelbo:3.2760 | 1:54:19.21
+[SB forward] stage 1/10 | ep 11/18 | iter 1301/2160 | lr:9.26e-07 | loss:-0.0013 | nelbo:3.4628 | 1:54:31.18
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  38%|██████          | 15/40 [00:00<00:00, 148.51it/s]backward SDE sampling...:  78%|████████████▍   | 31/40 [00:00<00:00, 153.44it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 153.48it/s]
+[SB forward] stage 1/10 | ep 12/18 | iter 1321/2160 | lr:9.19e-07 | loss:-0.0013 | nelbo:3.6745 | 1:54:36.41
+[SB forward] stage 1/10 | ep 12/18 | iter 1371/2160 | lr:9.19e-07 | loss:-0.0016 | nelbo:3.8555 | 1:54:48.35
+[SB forward] stage 1/10 | ep 12/18 | iter 1421/2160 | lr:9.19e-07 | loss:-0.0018 | nelbo:3.3770 | 1:55:00.23
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  38%|██████          | 15/40 [00:00<00:00, 147.63it/s]backward SDE sampling...:  78%|████████████▍   | 31/40 [00:00<00:00, 152.95it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 152.99it/s]
+[SB forward] stage 1/10 | ep 13/18 | iter 1441/2160 | lr:9.12e-07 | loss:-0.0017 | nelbo:3.6810 | 1:55:05.45
+[SB forward] stage 1/10 | ep 13/18 | iter 1491/2160 | lr:9.12e-07 | loss:-0.0016 | nelbo:3.3220 | 1:55:17.37
+[SB forward] stage 1/10 | ep 13/18 | iter 1541/2160 | lr:9.12e-07 | loss:-0.0023 | nelbo:3.3102 | 1:55:29.29
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  38%|██████          | 15/40 [00:00<00:00, 147.43it/s]backward SDE sampling...:  78%|████████████▍   | 31/40 [00:00<00:00, 152.31it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 152.37it/s]
+[SB forward] stage 1/10 | ep 14/18 | iter 1561/2160 | lr:9.05e-07 | loss:-0.0014 | nelbo:3.4556 | 1:55:34.49
+[SB forward] stage 1/10 | ep 14/18 | iter 1611/2160 | lr:9.05e-07 | loss:-0.0024 | nelbo:3.5433 | 1:55:46.41
+[SB forward] stage 1/10 | ep 14/18 | iter 1661/2160 | lr:9.05e-07 | loss:-0.0019 | nelbo:3.5495 | 1:55:58.29
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  38%|██████          | 15/40 [00:00<00:00, 148.36it/s]backward SDE sampling...:  78%|████████████▍   | 31/40 [00:00<00:00, 153.33it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 153.41it/s]
+[SB forward] stage 1/10 | ep 15/18 | iter 1681/2160 | lr:8.98e-07 | loss:-0.0022 | nelbo:3.3497 | 1:56:03.53
+[SB forward] stage 1/10 | ep 15/18 | iter 1731/2160 | lr:8.98e-07 | loss:-0.0013 | nelbo:3.2764 | 1:56:15.44
+[SB forward] stage 1/10 | ep 15/18 | iter 1781/2160 | lr:8.98e-07 | loss:-0.0013 | nelbo:3.1177 | 1:56:27.77
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  42%|██████▊         | 17/40 [00:00<00:00, 164.82it/s]backward SDE sampling...:  85%|█████████████▌  | 34/40 [00:00<00:00, 165.31it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 163.73it/s]
+[SB forward] stage 1/10 | ep 16/18 | iter 1801/2160 | lr:8.91e-07 | loss:-0.0034 | nelbo:4.0996 | 1:56:32.88
+[SB forward] stage 1/10 | ep 16/18 | iter 1851/2160 | lr:8.91e-07 | loss:-0.0024 | nelbo:3.3487 | 1:56:44.71
+[SB forward] stage 1/10 | ep 16/18 | iter 1901/2160 | lr:8.91e-07 | loss:-0.0027 | nelbo:3.5302 | 1:56:56.54
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  38%|██████          | 15/40 [00:00<00:00, 148.22it/s]backward SDE sampling...:  78%|████████████▍   | 31/40 [00:00<00:00, 153.22it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 153.21it/s]
+[SB forward] stage 1/10 | ep 17/18 | iter 1921/2160 | lr:8.84e-07 | loss:-0.0024 | nelbo:3.5517 | 1:57:01.81
+[SB forward] stage 1/10 | ep 17/18 | iter 1971/2160 | lr:8.84e-07 | loss:-0.0030 | nelbo:3.8059 | 1:57:13.72
+[SB forward] stage 1/10 | ep 17/18 | iter 2021/2160 | lr:8.84e-07 | loss:-0.0021 | nelbo:3.5299 | 1:57:25.64
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  38%|██████          | 15/40 [00:00<00:00, 149.01it/s]backward SDE sampling...:  78%|████████████▍   | 31/40 [00:00<00:00, 153.77it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 153.83it/s]
+[SB forward] stage 1/10 | ep 18/18 | iter 2041/2160 | lr:8.78e-07 | loss:-0.0024 | nelbo:3.3739 | 1:57:30.85
+[SB forward] stage 1/10 | ep 18/18 | iter 2091/2160 | lr:8.78e-07 | loss:-0.0027 | nelbo:3.5225 | 1:57:42.75
+[SB forward] stage 1/10 | ep 18/18 | iter 2141/2160 | lr:8.78e-07 | loss:-0.0028 | nelbo:3.3845 | 1:57:54.63
+checkpoint saved: results/parametric_Unetv2_Transformerv2_ve_alternate_imputation_v2_dsm_imputation_v2_12_29_2023_194438_'backward_cnt'/stage_0_fb.npz
+save opt:results/parametric_Unetv2_Transformerv2_ve_alternate_imputation_v2_dsm_imputation_v2_12_29_2023_194438_'backward_cnt'/opt.yaml
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  15%|██▊                | 6/40 [00:00<00:00, 51.04it/s]Forward SDE sampling...:  30%|█████▍            | 12/40 [00:00<00:00, 52.31it/s]Forward SDE sampling...:  45%|████████          | 18/40 [00:00<00:00, 52.76it/s]Forward SDE sampling...:  60%|██████████▊       | 24/40 [00:00<00:00, 52.96it/s]Forward SDE sampling...:  75%|█████████████▌    | 30/40 [00:00<00:00, 53.07it/s]Forward SDE sampling...:  90%|████████████████▏ | 36/40 [00:00<00:00, 53.14it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 52.91it/s]/home/caohaoqun/CSBI_replicant/runner.py:552: UserWarning: torch.nn.utils.clip_grad_norm is now deprecated in favor of torch.nn.utils.clip_grad_norm_.
+  torch.nn.utils.clip_grad_norm(policy.parameters(), opt.grad_clip)
+
+[SB backward] stage 2/10 | ep 1/6 | iter 1/720 | lr:5.00e-06 | loss:-0.2334 | nelbo:-0.2155 | 1:58:00.38
+[SB backward] stage 2/10 | ep 1/6 | iter 51/720 | lr:5.00e-06 | loss:-0.2685 | nelbo:-0.2507 | 1:58:05.15
+[SB backward] stage 2/10 | ep 1/6 | iter 101/720 | lr:5.00e-06 | loss:-0.2563 | nelbo:-0.2388 | 1:58:09.93
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  12%|██▍                | 5/40 [00:00<00:00, 46.17it/s]Forward SDE sampling...:  28%|████▉             | 11/40 [00:00<00:00, 50.26it/s]Forward SDE sampling...:  42%|███████▋          | 17/40 [00:00<00:00, 51.30it/s]Forward SDE sampling...:  57%|██████████▎       | 23/40 [00:00<00:00, 51.21it/s]Forward SDE sampling...:  72%|█████████████     | 29/40 [00:00<00:00, 51.39it/s]Forward SDE sampling...:  88%|███████████████▊  | 35/40 [00:00<00:00, 51.94it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 51.49it/s]
+[SB backward] stage 2/10 | ep 2/6 | iter 121/720 | lr:4.96e-06 | loss:-0.2637 | nelbo:-0.2466 | 1:58:12.82
+[SB backward] stage 2/10 | ep 2/6 | iter 171/720 | lr:4.96e-06 | loss:-0.2384 | nelbo:-0.2208 | 1:58:17.62
+[SB backward] stage 2/10 | ep 2/6 | iter 221/720 | lr:4.96e-06 | loss:-0.1953 | nelbo:-0.1782 | 1:58:22.41
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  12%|██▍                | 5/40 [00:00<00:00, 47.34it/s]Forward SDE sampling...:  28%|████▉             | 11/40 [00:00<00:00, 49.71it/s]Forward SDE sampling...:  42%|███████▋          | 17/40 [00:00<00:00, 50.50it/s]Forward SDE sampling...:  57%|██████████▎       | 23/40 [00:00<00:00, 51.47it/s]Forward SDE sampling...:  72%|█████████████     | 29/40 [00:00<00:00, 52.02it/s]Forward SDE sampling...:  88%|███████████████▊  | 35/40 [00:00<00:00, 52.36it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 51.71it/s]
+[SB backward] stage 2/10 | ep 3/6 | iter 241/720 | lr:4.92e-06 | loss:-0.1934 | nelbo:-0.1749 | 1:58:25.32
+[SB backward] stage 2/10 | ep 3/6 | iter 291/720 | lr:4.92e-06 | loss:-0.1975 | nelbo:-0.1787 | 1:58:30.11
+[SB backward] stage 2/10 | ep 3/6 | iter 341/720 | lr:4.92e-06 | loss:-0.2212 | nelbo:-0.2029 | 1:58:34.91
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  12%|██▍                | 5/40 [00:00<00:00, 46.17it/s]Forward SDE sampling...:  28%|████▉             | 11/40 [00:00<00:00, 50.24it/s]Forward SDE sampling...:  42%|███████▋          | 17/40 [00:00<00:00, 51.54it/s]Forward SDE sampling...:  57%|██████████▎       | 23/40 [00:00<00:00, 51.37it/s]Forward SDE sampling...:  72%|█████████████     | 29/40 [00:00<00:00, 51.87it/s]Forward SDE sampling...:  88%|███████████████▊  | 35/40 [00:00<00:00, 52.26it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 51.72it/s]
+[SB backward] stage 2/10 | ep 4/6 | iter 361/720 | lr:4.89e-06 | loss:-0.1905 | nelbo:-0.1730 | 1:58:37.80
+[SB backward] stage 2/10 | ep 4/6 | iter 411/720 | lr:4.89e-06 | loss:-0.2774 | nelbo:-0.2602 | 1:58:42.59
+[SB backward] stage 2/10 | ep 4/6 | iter 461/720 | lr:4.89e-06 | loss:-0.1983 | nelbo:-0.1808 | 1:58:47.39
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  12%|██▍                | 5/40 [00:00<00:00, 45.84it/s]Forward SDE sampling...:  28%|████▉             | 11/40 [00:00<00:00, 49.74it/s]Forward SDE sampling...:  42%|███████▋          | 17/40 [00:00<00:00, 50.96it/s]Forward SDE sampling...:  57%|██████████▎       | 23/40 [00:00<00:00, 51.53it/s]Forward SDE sampling...:  72%|█████████████     | 29/40 [00:00<00:00, 51.85it/s]Forward SDE sampling...:  88%|███████████████▊  | 35/40 [00:00<00:00, 52.03it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 51.46it/s]
+[SB backward] stage 2/10 | ep 5/6 | iter 481/720 | lr:4.85e-06 | loss:-0.2958 | nelbo:-0.2775 | 1:58:50.29
+[SB backward] stage 2/10 | ep 5/6 | iter 531/720 | lr:4.85e-06 | loss:-0.2571 | nelbo:-0.2389 | 1:58:55.09
+[SB backward] stage 2/10 | ep 5/6 | iter 581/720 | lr:4.85e-06 | loss:-0.2607 | nelbo:-0.2429 | 1:58:59.88
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  12%|██▍                | 5/40 [00:00<00:00, 46.62it/s]Forward SDE sampling...:  28%|████▉             | 11/40 [00:00<00:00, 50.46it/s]Forward SDE sampling...:  42%|███████▋          | 17/40 [00:00<00:00, 51.65it/s]Forward SDE sampling...:  57%|██████████▎       | 23/40 [00:00<00:00, 52.21it/s]Forward SDE sampling...:  72%|█████████████     | 29/40 [00:00<00:00, 52.53it/s]Forward SDE sampling...:  88%|███████████████▊  | 35/40 [00:00<00:00, 52.71it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 52.14it/s]
+[SB backward] stage 2/10 | ep 6/6 | iter 601/720 | lr:4.81e-06 | loss:-0.2173 | nelbo:-0.1992 | 1:59:02.77
+[SB backward] stage 2/10 | ep 6/6 | iter 651/720 | lr:4.81e-06 | loss:-0.2025 | nelbo:-0.1838 | 1:59:07.56
+[SB backward] stage 2/10 | ep 6/6 | iter 701/720 | lr:4.81e-06 | loss:-0.2442 | nelbo:-0.2257 | 1:59:12.35
+  0%|                                                                         | 0/1 [00:00<?, ?it/s]100%|█████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  2.00it/s]100%|█████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  1.99it/s]
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  40%|██████▍         | 16/40 [00:00<00:00, 154.91it/s]backward SDE sampling...:  80%|████████████▊   | 32/40 [00:00<00:00, 155.59it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 155.49it/s]/home/caohaoqun/CSBI_replicant/runner.py:372: UserWarning: torch.nn.utils.clip_grad_norm is now deprecated in favor of torch.nn.utils.clip_grad_norm_.
+  torch.nn.utils.clip_grad_norm(policy.parameters(), opt.grad_clip)
+
+[SB forward] stage 2/10 | ep 1/6 | iter 1/720 | lr:8.71e-07 | loss:-0.0027 | nelbo:3.4076 | 1:59:17.17
+[SB forward] stage 2/10 | ep 1/6 | iter 51/720 | lr:8.71e-07 | loss:-0.0023 | nelbo:3.2438 | 1:59:29.04
+[SB forward] stage 2/10 | ep 1/6 | iter 101/720 | lr:8.71e-07 | loss:-0.0022 | nelbo:3.4423 | 1:59:40.88
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  38%|██████          | 15/40 [00:00<00:00, 148.80it/s]backward SDE sampling...:  78%|████████████▍   | 31/40 [00:00<00:00, 153.12it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 153.20it/s]
+[SB forward] stage 2/10 | ep 2/6 | iter 121/720 | lr:8.64e-07 | loss:-0.0032 | nelbo:3.9476 | 1:59:46.07
+[SB forward] stage 2/10 | ep 2/6 | iter 171/720 | lr:8.64e-07 | loss:-0.0033 | nelbo:3.5406 | 1:59:57.91
+[SB forward] stage 2/10 | ep 2/6 | iter 221/720 | lr:8.64e-07 | loss:-0.0035 | nelbo:3.7194 | 2:00:09.71
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  38%|██████          | 15/40 [00:00<00:00, 148.07it/s]backward SDE sampling...:  78%|████████████▍   | 31/40 [00:00<00:00, 152.24it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 152.27it/s]
+[SB forward] stage 2/10 | ep 3/6 | iter 241/720 | lr:8.58e-07 | loss:-0.0038 | nelbo:3.6547 | 2:00:14.91
+[SB forward] stage 2/10 | ep 3/6 | iter 291/720 | lr:8.58e-07 | loss:-0.0033 | nelbo:3.6598 | 2:00:26.74
+[SB forward] stage 2/10 | ep 3/6 | iter 341/720 | lr:8.58e-07 | loss:-0.0032 | nelbo:3.8551 | 2:00:38.54
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  38%|██████          | 15/40 [00:00<00:00, 147.77it/s]backward SDE sampling...:  78%|████████████▍   | 31/40 [00:00<00:00, 152.13it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 152.22it/s]
+[SB forward] stage 2/10 | ep 4/6 | iter 361/720 | lr:8.51e-07 | loss:-0.0025 | nelbo:3.1260 | 2:00:43.74
+[SB forward] stage 2/10 | ep 4/6 | iter 411/720 | lr:8.51e-07 | loss:-0.0037 | nelbo:3.5529 | 2:00:55.56
+[SB forward] stage 2/10 | ep 4/6 | iter 461/720 | lr:8.51e-07 | loss:-0.0028 | nelbo:3.3199 | 2:01:07.39
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  38%|██████          | 15/40 [00:00<00:00, 149.16it/s]backward SDE sampling...:  78%|████████████▍   | 31/40 [00:00<00:00, 153.16it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 153.18it/s]
+[SB forward] stage 2/10 | ep 5/6 | iter 481/720 | lr:8.45e-07 | loss:-0.0034 | nelbo:3.3707 | 2:01:12.56
+[SB forward] stage 2/10 | ep 5/6 | iter 531/720 | lr:8.45e-07 | loss:-0.0036 | nelbo:3.9493 | 2:01:24.38
+[SB forward] stage 2/10 | ep 5/6 | iter 581/720 | lr:8.45e-07 | loss:-0.0035 | nelbo:3.7505 | 2:01:36.20
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  38%|██████          | 15/40 [00:00<00:00, 148.03it/s]backward SDE sampling...:  78%|████████████▍   | 31/40 [00:00<00:00, 152.51it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 152.56it/s]
+[SB forward] stage 2/10 | ep 6/6 | iter 601/720 | lr:8.38e-07 | loss:-0.0045 | nelbo:3.6837 | 2:01:41.40
+[SB forward] stage 2/10 | ep 6/6 | iter 651/720 | lr:8.38e-07 | loss:-0.0042 | nelbo:3.5186 | 2:01:53.21
+[SB forward] stage 2/10 | ep 6/6 | iter 701/720 | lr:8.38e-07 | loss:-0.0040 | nelbo:3.3414 | 2:02:04.99
+checkpoint saved: results/parametric_Unetv2_Transformerv2_ve_alternate_imputation_v2_dsm_imputation_v2_12_29_2023_194438_'backward_cnt'/stage_1_fb.npz
+save opt:results/parametric_Unetv2_Transformerv2_ve_alternate_imputation_v2_dsm_imputation_v2_12_29_2023_194438_'backward_cnt'/opt.yaml
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  15%|██▊                | 6/40 [00:00<00:00, 51.25it/s]Forward SDE sampling...:  30%|█████▍            | 12/40 [00:00<00:00, 52.28it/s]Forward SDE sampling...:  45%|████████          | 18/40 [00:00<00:00, 52.64it/s]Forward SDE sampling...:  60%|██████████▊       | 24/40 [00:00<00:00, 52.82it/s]Forward SDE sampling...:  75%|█████████████▌    | 30/40 [00:00<00:00, 52.91it/s]Forward SDE sampling...:  90%|████████████████▏ | 36/40 [00:00<00:00, 52.98it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 52.79it/s]/home/caohaoqun/CSBI_replicant/runner.py:552: UserWarning: torch.nn.utils.clip_grad_norm is now deprecated in favor of torch.nn.utils.clip_grad_norm_.
+  torch.nn.utils.clip_grad_norm(policy.parameters(), opt.grad_clip)
+
+[SB backward] stage 3/10 | ep 1/6 | iter 1/720 | lr:4.77e-06 | loss:-0.2057 | nelbo:-0.1814 | 2:02:10.74
+[SB backward] stage 3/10 | ep 1/6 | iter 51/720 | lr:4.77e-06 | loss:-0.2277 | nelbo:-0.2028 | 2:02:15.52
+[SB backward] stage 3/10 | ep 1/6 | iter 101/720 | lr:4.77e-06 | loss:-0.1918 | nelbo:-0.1667 | 2:02:20.31
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  12%|██▍                | 5/40 [00:00<00:00, 46.27it/s]Forward SDE sampling...:  28%|████▉             | 11/40 [00:00<00:00, 50.44it/s]Forward SDE sampling...:  42%|███████▋          | 17/40 [00:00<00:00, 51.73it/s]Forward SDE sampling...:  57%|██████████▎       | 23/40 [00:00<00:00, 52.35it/s]Forward SDE sampling...:  72%|█████████████     | 29/40 [00:00<00:00, 52.69it/s]Forward SDE sampling...:  88%|███████████████▊  | 35/40 [00:00<00:00, 52.90it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 52.28it/s]
+[SB backward] stage 3/10 | ep 2/6 | iter 121/720 | lr:4.74e-06 | loss:-0.2572 | nelbo:-0.2342 | 2:02:23.20
+[SB backward] stage 3/10 | ep 2/6 | iter 171/720 | lr:4.74e-06 | loss:-0.2155 | nelbo:-0.1920 | 2:02:28.00
+[SB backward] stage 3/10 | ep 2/6 | iter 221/720 | lr:4.74e-06 | loss:-0.2171 | nelbo:-0.1938 | 2:02:32.79
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  12%|██▍                | 5/40 [00:00<00:00, 46.15it/s]Forward SDE sampling...:  28%|████▉             | 11/40 [00:00<00:00, 50.26it/s]Forward SDE sampling...:  42%|███████▋          | 17/40 [00:00<00:00, 51.54it/s]Forward SDE sampling...:  57%|██████████▎       | 23/40 [00:00<00:00, 52.15it/s]Forward SDE sampling...:  72%|█████████████     | 29/40 [00:00<00:00, 52.50it/s]Forward SDE sampling...:  88%|███████████████▊  | 35/40 [00:00<00:00, 52.71it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 52.09it/s]
+[SB backward] stage 3/10 | ep 3/6 | iter 241/720 | lr:4.70e-06 | loss:-0.2920 | nelbo:-0.2670 | 2:02:35.68
+[SB backward] stage 3/10 | ep 3/6 | iter 291/720 | lr:4.70e-06 | loss:-0.2567 | nelbo:-0.2317 | 2:02:40.47
+[SB backward] stage 3/10 | ep 3/6 | iter 341/720 | lr:4.70e-06 | loss:-0.2624 | nelbo:-0.2377 | 2:02:45.27
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  12%|██▍                | 5/40 [00:00<00:00, 45.51it/s]Forward SDE sampling...:  28%|████▉             | 11/40 [00:00<00:00, 50.01it/s]Forward SDE sampling...:  42%|███████▋          | 17/40 [00:00<00:00, 51.40it/s]Forward SDE sampling...:  57%|██████████▎       | 23/40 [00:00<00:00, 52.07it/s]Forward SDE sampling...:  72%|█████████████     | 29/40 [00:00<00:00, 52.45it/s]Forward SDE sampling...:  88%|███████████████▊  | 35/40 [00:00<00:00, 52.67it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 52.00it/s]
+[SB backward] stage 3/10 | ep 4/6 | iter 361/720 | lr:4.67e-06 | loss:-0.2311 | nelbo:-0.2068 | 2:02:48.16
+[SB backward] stage 3/10 | ep 4/6 | iter 411/720 | lr:4.67e-06 | loss:-0.2132 | nelbo:-0.1892 | 2:02:52.95
+[SB backward] stage 3/10 | ep 4/6 | iter 461/720 | lr:4.67e-06 | loss:-0.2454 | nelbo:-0.2207 | 2:02:57.74
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  12%|██▍                | 5/40 [00:00<00:00, 46.17it/s]Forward SDE sampling...:  28%|████▉             | 11/40 [00:00<00:00, 50.27it/s]Forward SDE sampling...:  42%|███████▋          | 17/40 [00:00<00:00, 51.54it/s]Forward SDE sampling...:  57%|██████████▎       | 23/40 [00:00<00:00, 52.13it/s]Forward SDE sampling...:  72%|█████████████     | 29/40 [00:00<00:00, 52.45it/s]Forward SDE sampling...:  88%|███████████████▊  | 35/40 [00:00<00:00, 52.65it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 52.05it/s]
+[SB backward] stage 3/10 | ep 5/6 | iter 481/720 | lr:4.63e-06 | loss:-0.2466 | nelbo:-0.2222 | 2:03:00.64
+[SB backward] stage 3/10 | ep 5/6 | iter 531/720 | lr:4.63e-06 | loss:-0.2170 | nelbo:-0.1932 | 2:03:05.43
+[SB backward] stage 3/10 | ep 5/6 | iter 581/720 | lr:4.63e-06 | loss:-0.2421 | nelbo:-0.2184 | 2:03:10.24
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  12%|██▍                | 5/40 [00:00<00:00, 46.09it/s]Forward SDE sampling...:  28%|████▉             | 11/40 [00:00<00:00, 50.27it/s]Forward SDE sampling...:  42%|███████▋          | 17/40 [00:00<00:00, 51.57it/s]Forward SDE sampling...:  57%|██████████▎       | 23/40 [00:00<00:00, 52.06it/s]Forward SDE sampling...:  72%|█████████████     | 29/40 [00:00<00:00, 51.97it/s]Forward SDE sampling...:  88%|███████████████▊  | 35/40 [00:00<00:00, 52.35it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 51.86it/s]
+[SB backward] stage 3/10 | ep 6/6 | iter 601/720 | lr:4.60e-06 | loss:-0.2541 | nelbo:-0.2304 | 2:03:13.14
+[SB backward] stage 3/10 | ep 6/6 | iter 651/720 | lr:4.60e-06 | loss:-0.2616 | nelbo:-0.2379 | 2:03:17.94
+[SB backward] stage 3/10 | ep 6/6 | iter 701/720 | lr:4.60e-06 | loss:-0.2729 | nelbo:-0.2486 | 2:03:22.75
+  0%|                                                                         | 0/1 [00:00<?, ?it/s]100%|█████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  1.93it/s]100%|█████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  1.93it/s]
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  40%|██████▍         | 16/40 [00:00<00:00, 154.82it/s]backward SDE sampling...:  80%|████████████▊   | 32/40 [00:00<00:00, 155.60it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 159.20it/s]/home/caohaoqun/CSBI_replicant/runner.py:372: UserWarning: torch.nn.utils.clip_grad_norm is now deprecated in favor of torch.nn.utils.clip_grad_norm_.
+  torch.nn.utils.clip_grad_norm(policy.parameters(), opt.grad_clip)
+
+[SB forward] stage 3/10 | ep 1/6 | iter 1/720 | lr:8.32e-07 | loss:-0.0026 | nelbo:3.6984 | 2:03:27.54
+[SB forward] stage 3/10 | ep 1/6 | iter 51/720 | lr:8.32e-07 | loss:-0.0033 | nelbo:3.4103 | 2:03:39.37
+[SB forward] stage 3/10 | ep 1/6 | iter 101/720 | lr:8.32e-07 | loss:-0.0037 | nelbo:3.5896 | 2:03:51.24
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  38%|██████          | 15/40 [00:00<00:00, 149.20it/s]backward SDE sampling...:  78%|████████████▍   | 31/40 [00:00<00:00, 152.46it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 152.37it/s]
+[SB forward] stage 3/10 | ep 2/6 | iter 121/720 | lr:8.25e-07 | loss:-0.0030 | nelbo:3.5296 | 2:03:56.46
+[SB forward] stage 3/10 | ep 2/6 | iter 171/720 | lr:8.25e-07 | loss:-0.0033 | nelbo:3.3738 | 2:04:08.30
+[SB forward] stage 3/10 | ep 2/6 | iter 221/720 | lr:8.25e-07 | loss:-0.0040 | nelbo:3.5741 | 2:04:20.11
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  38%|██████          | 15/40 [00:00<00:00, 147.50it/s]backward SDE sampling...:  78%|████████████▍   | 31/40 [00:00<00:00, 152.76it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 152.87it/s]
+[SB forward] stage 3/10 | ep 3/6 | iter 241/720 | lr:8.19e-07 | loss:-0.0038 | nelbo:3.7133 | 2:04:25.31
+[SB forward] stage 3/10 | ep 3/6 | iter 291/720 | lr:8.19e-07 | loss:-0.0042 | nelbo:3.8880 | 2:04:37.12
+[SB forward] stage 3/10 | ep 3/6 | iter 341/720 | lr:8.19e-07 | loss:-0.0038 | nelbo:3.4582 | 2:04:48.92
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  38%|██████          | 15/40 [00:00<00:00, 147.34it/s]backward SDE sampling...:  78%|████████████▍   | 31/40 [00:00<00:00, 152.76it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 152.87it/s]
+[SB forward] stage 3/10 | ep 4/6 | iter 361/720 | lr:8.13e-07 | loss:-0.0042 | nelbo:3.5402 | 2:04:54.10
+[SB forward] stage 3/10 | ep 4/6 | iter 411/720 | lr:8.13e-07 | loss:-0.0041 | nelbo:3.4287 | 2:05:05.91
+[SB forward] stage 3/10 | ep 4/6 | iter 461/720 | lr:8.13e-07 | loss:-0.0039 | nelbo:3.3913 | 2:05:17.78
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  38%|██████          | 15/40 [00:00<00:00, 149.11it/s]backward SDE sampling...:  78%|████████████▍   | 31/40 [00:00<00:00, 153.57it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 153.62it/s]
+[SB forward] stage 3/10 | ep 5/6 | iter 481/720 | lr:8.07e-07 | loss:-0.0034 | nelbo:3.4625 | 2:05:22.96
+[SB forward] stage 3/10 | ep 5/6 | iter 531/720 | lr:8.07e-07 | loss:-0.0044 | nelbo:3.7031 | 2:05:34.80
+[SB forward] stage 3/10 | ep 5/6 | iter 581/720 | lr:8.07e-07 | loss:-0.0048 | nelbo:3.5515 | 2:05:46.67
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  38%|██████          | 15/40 [00:00<00:00, 148.31it/s]backward SDE sampling...:  78%|████████████▍   | 31/40 [00:00<00:00, 152.46it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 152.52it/s]
+[SB forward] stage 3/10 | ep 6/6 | iter 601/720 | lr:8.00e-07 | loss:-0.0025 | nelbo:3.5795 | 2:05:51.86
+[SB forward] stage 3/10 | ep 6/6 | iter 651/720 | lr:8.00e-07 | loss:-0.0038 | nelbo:3.7000 | 2:06:03.69
+[SB forward] stage 3/10 | ep 6/6 | iter 701/720 | lr:8.00e-07 | loss:-0.0056 | nelbo:3.5906 | 2:06:15.57
+checkpoint saved: results/parametric_Unetv2_Transformerv2_ve_alternate_imputation_v2_dsm_imputation_v2_12_29_2023_194438_'backward_cnt'/stage_2_fb.npz
+save opt:results/parametric_Unetv2_Transformerv2_ve_alternate_imputation_v2_dsm_imputation_v2_12_29_2023_194438_'backward_cnt'/opt.yaml
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  15%|██▊                | 6/40 [00:00<00:00, 51.18it/s]Forward SDE sampling...:  30%|█████▍            | 12/40 [00:00<00:00, 52.29it/s]Forward SDE sampling...:  45%|████████          | 18/40 [00:00<00:00, 52.67it/s]Forward SDE sampling...:  60%|██████████▊       | 24/40 [00:00<00:00, 52.85it/s]Forward SDE sampling...:  75%|█████████████▌    | 30/40 [00:00<00:00, 52.94it/s]Forward SDE sampling...:  90%|████████████████▏ | 36/40 [00:00<00:00, 52.99it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 52.80it/s]/home/caohaoqun/CSBI_replicant/runner.py:552: UserWarning: torch.nn.utils.clip_grad_norm is now deprecated in favor of torch.nn.utils.clip_grad_norm_.
+  torch.nn.utils.clip_grad_norm(policy.parameters(), opt.grad_clip)
+
+[SB backward] stage 4/10 | ep 1/6 | iter 1/720 | lr:4.56e-06 | loss:-0.2302 | nelbo:-0.2012 | 2:06:21.34
+[SB backward] stage 4/10 | ep 1/6 | iter 51/720 | lr:4.56e-06 | loss:-0.2733 | nelbo:-0.2440 | 2:06:26.13
+[SB backward] stage 4/10 | ep 1/6 | iter 101/720 | lr:4.56e-06 | loss:-0.2494 | nelbo:-0.2197 | 2:06:30.92
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  12%|██▍                | 5/40 [00:00<00:00, 46.20it/s]Forward SDE sampling...:  28%|████▉             | 11/40 [00:00<00:00, 50.31it/s]Forward SDE sampling...:  42%|███████▋          | 17/40 [00:00<00:00, 51.57it/s]Forward SDE sampling...:  57%|██████████▎       | 23/40 [00:00<00:00, 52.16it/s]Forward SDE sampling...:  72%|█████████████     | 29/40 [00:00<00:00, 52.49it/s]Forward SDE sampling...:  88%|███████████████▊  | 35/40 [00:00<00:00, 52.69it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 52.07it/s]
+[SB backward] stage 4/10 | ep 2/6 | iter 121/720 | lr:4.53e-06 | loss:-0.2262 | nelbo:-0.1977 | 2:06:33.82
+[SB backward] stage 4/10 | ep 2/6 | iter 171/720 | lr:4.53e-06 | loss:-0.2575 | nelbo:-0.2291 | 2:06:38.62
+[SB backward] stage 4/10 | ep 2/6 | iter 221/720 | lr:4.53e-06 | loss:-0.2333 | nelbo:-0.2045 | 2:06:43.42
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  12%|██▍                | 5/40 [00:00<00:00, 46.45it/s]Forward SDE sampling...:  28%|████▉             | 11/40 [00:00<00:00, 50.48it/s]Forward SDE sampling...:  42%|███████▋          | 17/40 [00:00<00:00, 51.75it/s]Forward SDE sampling...:  57%|██████████▎       | 23/40 [00:00<00:00, 52.35it/s]Forward SDE sampling...:  72%|█████████████     | 29/40 [00:00<00:00, 52.68it/s]Forward SDE sampling...:  88%|███████████████▊  | 35/40 [00:00<00:00, 52.87it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 52.28it/s]
+[SB backward] stage 4/10 | ep 3/6 | iter 241/720 | lr:4.49e-06 | loss:-0.2561 | nelbo:-0.2250 | 2:06:46.30
+[SB backward] stage 4/10 | ep 3/6 | iter 291/720 | lr:4.49e-06 | loss:-0.2274 | nelbo:-0.1964 | 2:06:51.08
+[SB backward] stage 4/10 | ep 3/6 | iter 341/720 | lr:4.49e-06 | loss:-0.2901 | nelbo:-0.2586 | 2:06:55.86
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  12%|██▍                | 5/40 [00:00<00:00, 46.26it/s]Forward SDE sampling...:  28%|████▉             | 11/40 [00:00<00:00, 50.37it/s]Forward SDE sampling...:  42%|███████▋          | 17/40 [00:00<00:00, 51.64it/s]Forward SDE sampling...:  57%|██████████▎       | 23/40 [00:00<00:00, 52.18it/s]Forward SDE sampling...:  72%|█████████████     | 29/40 [00:00<00:00, 52.52it/s]Forward SDE sampling...:  88%|███████████████▊  | 35/40 [00:00<00:00, 52.74it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 52.13it/s]
+[SB backward] stage 4/10 | ep 4/6 | iter 361/720 | lr:4.46e-06 | loss:-0.2528 | nelbo:-0.2229 | 2:06:58.75
+[SB backward] stage 4/10 | ep 4/6 | iter 411/720 | lr:4.46e-06 | loss:-0.2490 | nelbo:-0.2195 | 2:07:03.55
+[SB backward] stage 4/10 | ep 4/6 | iter 461/720 | lr:4.46e-06 | loss:-0.2390 | nelbo:-0.2094 | 2:07:08.34
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  12%|██▍                | 5/40 [00:00<00:00, 46.17it/s]Forward SDE sampling...:  28%|████▉             | 11/40 [00:00<00:00, 50.42it/s]Forward SDE sampling...:  42%|███████▋          | 17/40 [00:00<00:00, 51.77it/s]Forward SDE sampling...:  57%|██████████▎       | 23/40 [00:00<00:00, 52.39it/s]Forward SDE sampling...:  72%|█████████████     | 29/40 [00:00<00:00, 52.74it/s]Forward SDE sampling...:  88%|███████████████▊  | 35/40 [00:00<00:00, 52.95it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 52.31it/s]
+[SB backward] stage 4/10 | ep 5/6 | iter 481/720 | lr:4.42e-06 | loss:-0.2371 | nelbo:-0.2070 | 2:07:11.23
+[SB backward] stage 4/10 | ep 5/6 | iter 531/720 | lr:4.42e-06 | loss:-0.2496 | nelbo:-0.2199 | 2:07:16.02
+[SB backward] stage 4/10 | ep 5/6 | iter 581/720 | lr:4.42e-06 | loss:-0.2259 | nelbo:-0.1949 | 2:07:20.82
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  12%|██▍                | 5/40 [00:00<00:00, 46.35it/s]Forward SDE sampling...:  28%|████▉             | 11/40 [00:00<00:00, 50.46it/s]Forward SDE sampling...:  42%|███████▋          | 17/40 [00:00<00:00, 51.73it/s]Forward SDE sampling...:  57%|██████████▎       | 23/40 [00:00<00:00, 52.34it/s]Forward SDE sampling...:  72%|█████████████     | 29/40 [00:00<00:00, 52.68it/s]Forward SDE sampling...:  88%|███████████████▊  | 35/40 [00:00<00:00, 52.87it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 52.26it/s]
+[SB backward] stage 4/10 | ep 6/6 | iter 601/720 | lr:4.39e-06 | loss:-0.2464 | nelbo:-0.2186 | 2:07:23.70
+[SB backward] stage 4/10 | ep 6/6 | iter 651/720 | lr:4.39e-06 | loss:-0.2362 | nelbo:-0.2082 | 2:07:28.48
+[SB backward] stage 4/10 | ep 6/6 | iter 701/720 | lr:4.39e-06 | loss:-0.2466 | nelbo:-0.2190 | 2:07:33.27
+  0%|                                                                         | 0/1 [00:00<?, ?it/s]100%|█████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  1.89it/s]100%|█████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  1.88it/s]
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  40%|██████▍         | 16/40 [00:00<00:00, 155.02it/s]backward SDE sampling...:  82%|█████████████▏  | 33/40 [00:00<00:00, 159.85it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 167.42it/s]/home/caohaoqun/CSBI_replicant/runner.py:372: UserWarning: torch.nn.utils.clip_grad_norm is now deprecated in favor of torch.nn.utils.clip_grad_norm_.
+  torch.nn.utils.clip_grad_norm(policy.parameters(), opt.grad_clip)
+
+[SB forward] stage 4/10 | ep 1/6 | iter 1/720 | lr:7.94e-07 | loss:-0.0049 | nelbo:3.5538 | 2:07:38.06
+[SB forward] stage 4/10 | ep 1/6 | iter 51/720 | lr:7.94e-07 | loss:-0.0049 | nelbo:3.6344 | 2:07:49.98
+[SB forward] stage 4/10 | ep 1/6 | iter 101/720 | lr:7.94e-07 | loss:-0.0043 | nelbo:3.6986 | 2:08:01.82
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  38%|██████          | 15/40 [00:00<00:00, 149.14it/s]backward SDE sampling...:  78%|████████████▍   | 31/40 [00:00<00:00, 153.43it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 153.48it/s]
+[SB forward] stage 4/10 | ep 2/6 | iter 121/720 | lr:7.88e-07 | loss:-0.0024 | nelbo:3.3635 | 2:08:07.02
+[SB forward] stage 4/10 | ep 2/6 | iter 171/720 | lr:7.88e-07 | loss:-0.0055 | nelbo:3.6876 | 2:08:18.84
+[SB forward] stage 4/10 | ep 2/6 | iter 221/720 | lr:7.88e-07 | loss:-0.0039 | nelbo:3.5453 | 2:08:30.69
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  38%|██████          | 15/40 [00:00<00:00, 147.56it/s]backward SDE sampling...:  78%|████████████▍   | 31/40 [00:00<00:00, 152.74it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 152.83it/s]
+[SB forward] stage 4/10 | ep 3/6 | iter 241/720 | lr:7.82e-07 | loss:-0.0042 | nelbo:3.5418 | 2:08:35.91
+[SB forward] stage 4/10 | ep 3/6 | iter 291/720 | lr:7.82e-07 | loss:-0.0036 | nelbo:3.3664 | 2:08:47.73
+[SB forward] stage 4/10 | ep 3/6 | iter 341/720 | lr:7.82e-07 | loss:-0.0049 | nelbo:3.2029 | 2:08:59.57
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  38%|██████          | 15/40 [00:00<00:00, 149.28it/s]backward SDE sampling...:  78%|████████████▍   | 31/40 [00:00<00:00, 153.20it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 153.08it/s]
+[SB forward] stage 4/10 | ep 4/6 | iter 361/720 | lr:7.76e-07 | loss:-0.0045 | nelbo:3.4468 | 2:09:04.81
+[SB forward] stage 4/10 | ep 4/6 | iter 411/720 | lr:7.76e-07 | loss:-0.0067 | nelbo:3.7750 | 2:09:16.64
+[SB forward] stage 4/10 | ep 4/6 | iter 461/720 | lr:7.76e-07 | loss:-0.0051 | nelbo:3.3601 | 2:09:28.52
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  38%|██████          | 15/40 [00:00<00:00, 149.93it/s]backward SDE sampling...:  78%|████████████▍   | 31/40 [00:00<00:00, 154.18it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 154.24it/s]
+[SB forward] stage 4/10 | ep 5/6 | iter 481/720 | lr:7.70e-07 | loss:-0.0055 | nelbo:3.6316 | 2:09:33.71
+[SB forward] stage 4/10 | ep 5/6 | iter 531/720 | lr:7.70e-07 | loss:-0.0060 | nelbo:3.6437 | 2:09:45.56
+[SB forward] stage 4/10 | ep 5/6 | iter 581/720 | lr:7.70e-07 | loss:-0.0052 | nelbo:3.1320 | 2:09:57.39
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  38%|██████          | 15/40 [00:00<00:00, 147.23it/s]backward SDE sampling...:  78%|████████████▍   | 31/40 [00:00<00:00, 151.67it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 151.74it/s]
+[SB forward] stage 4/10 | ep 6/6 | iter 601/720 | lr:7.64e-07 | loss:-0.0027 | nelbo:3.1801 | 2:10:02.59
+[SB forward] stage 4/10 | ep 6/6 | iter 651/720 | lr:7.64e-07 | loss:-0.0038 | nelbo:3.3999 | 2:10:14.45
+[SB forward] stage 4/10 | ep 6/6 | iter 701/720 | lr:7.64e-07 | loss:-0.0062 | nelbo:3.5782 | 2:10:26.30
+checkpoint saved: results/parametric_Unetv2_Transformerv2_ve_alternate_imputation_v2_dsm_imputation_v2_12_29_2023_194438_'backward_cnt'/stage_3_fb.npz
+save opt:results/parametric_Unetv2_Transformerv2_ve_alternate_imputation_v2_dsm_imputation_v2_12_29_2023_194438_'backward_cnt'/opt.yaml
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  15%|██▊                | 6/40 [00:00<00:00, 51.55it/s]Forward SDE sampling...:  30%|█████▍            | 12/40 [00:00<00:00, 52.48it/s]Forward SDE sampling...:  45%|████████          | 18/40 [00:00<00:00, 52.81it/s]Forward SDE sampling...:  60%|██████████▊       | 24/40 [00:00<00:00, 52.98it/s]Forward SDE sampling...:  75%|█████████████▌    | 30/40 [00:00<00:00, 53.07it/s]Forward SDE sampling...:  90%|████████████████▏ | 36/40 [00:00<00:00, 53.13it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 52.95it/s]/home/caohaoqun/CSBI_replicant/runner.py:552: UserWarning: torch.nn.utils.clip_grad_norm is now deprecated in favor of torch.nn.utils.clip_grad_norm_.
+  torch.nn.utils.clip_grad_norm(policy.parameters(), opt.grad_clip)
+
+[SB backward] stage 5/10 | ep 1/6 | iter 1/720 | lr:4.35e-06 | loss:-0.2588 | nelbo:-0.2237 | 2:10:32.05
+[SB backward] stage 5/10 | ep 1/6 | iter 51/720 | lr:4.35e-06 | loss:-0.2326 | nelbo:-0.1988 | 2:10:36.85
+[SB backward] stage 5/10 | ep 1/6 | iter 101/720 | lr:4.35e-06 | loss:-0.2543 | nelbo:-0.2203 | 2:10:41.66
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  12%|██▍                | 5/40 [00:00<00:00, 46.67it/s]Forward SDE sampling...:  28%|████▉             | 11/40 [00:00<00:00, 50.44it/s]Forward SDE sampling...:  42%|███████▋          | 17/40 [00:00<00:00, 51.67it/s]Forward SDE sampling...:  57%|██████████▎       | 23/40 [00:00<00:00, 52.21it/s]Forward SDE sampling...:  72%|█████████████     | 29/40 [00:00<00:00, 52.52it/s]Forward SDE sampling...:  88%|███████████████▊  | 35/40 [00:00<00:00, 52.69it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 52.14it/s]
+[SB backward] stage 5/10 | ep 2/6 | iter 121/720 | lr:4.32e-06 | loss:-0.2408 | nelbo:-0.2093 | 2:10:44.56
+[SB backward] stage 5/10 | ep 2/6 | iter 171/720 | lr:4.32e-06 | loss:-0.2369 | nelbo:-0.2048 | 2:10:49.37
+[SB backward] stage 5/10 | ep 2/6 | iter 221/720 | lr:4.32e-06 | loss:-0.2305 | nelbo:-0.1987 | 2:10:54.18
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  12%|██▍                | 5/40 [00:00<00:00, 46.22it/s]Forward SDE sampling...:  28%|████▉             | 11/40 [00:00<00:00, 50.25it/s]Forward SDE sampling...:  42%|███████▋          | 17/40 [00:00<00:00, 51.51it/s]Forward SDE sampling...:  57%|██████████▎       | 23/40 [00:00<00:00, 52.09it/s]Forward SDE sampling...:  72%|█████████████     | 29/40 [00:00<00:00, 52.41it/s]Forward SDE sampling...:  88%|███████████████▊  | 35/40 [00:00<00:00, 52.61it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 52.02it/s]
+[SB backward] stage 5/10 | ep 3/6 | iter 241/720 | lr:4.29e-06 | loss:-0.2388 | nelbo:-0.2051 | 2:10:57.08
+[SB backward] stage 5/10 | ep 3/6 | iter 291/720 | lr:4.29e-06 | loss:-0.2259 | nelbo:-0.1914 | 2:11:01.89
+[SB backward] stage 5/10 | ep 3/6 | iter 341/720 | lr:4.29e-06 | loss:-0.2157 | nelbo:-0.1831 | 2:11:06.69
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  12%|██▍                | 5/40 [00:00<00:00, 45.44it/s]Forward SDE sampling...:  28%|████▉             | 11/40 [00:00<00:00, 50.02it/s]Forward SDE sampling...:  42%|███████▋          | 17/40 [00:00<00:00, 51.45it/s]Forward SDE sampling...:  57%|██████████▎       | 23/40 [00:00<00:00, 52.08it/s]Forward SDE sampling...:  72%|█████████████     | 29/40 [00:00<00:00, 52.45it/s]Forward SDE sampling...:  88%|███████████████▊  | 35/40 [00:00<00:00, 52.68it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 52.00it/s]
+[SB backward] stage 5/10 | ep 4/6 | iter 361/720 | lr:4.26e-06 | loss:-0.2212 | nelbo:-0.1835 | 2:11:09.59
+[SB backward] stage 5/10 | ep 4/6 | iter 411/720 | lr:4.26e-06 | loss:-0.2323 | nelbo:-0.1952 | 2:11:14.39
+[SB backward] stage 5/10 | ep 4/6 | iter 461/720 | lr:4.26e-06 | loss:-0.2539 | nelbo:-0.2168 | 2:11:19.22
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  12%|██▍                | 5/40 [00:00<00:00, 46.38it/s]Forward SDE sampling...:  28%|████▉             | 11/40 [00:00<00:00, 50.43it/s]Forward SDE sampling...:  42%|███████▋          | 17/40 [00:00<00:00, 51.69it/s]Forward SDE sampling...:  57%|██████████▎       | 23/40 [00:00<00:00, 52.27it/s]Forward SDE sampling...:  72%|█████████████     | 29/40 [00:00<00:00, 52.59it/s]Forward SDE sampling...:  88%|███████████████▊  | 35/40 [00:00<00:00, 52.78it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 52.19it/s]
+[SB backward] stage 5/10 | ep 5/6 | iter 481/720 | lr:4.22e-06 | loss:-0.2429 | nelbo:-0.2086 | 2:11:22.15
+[SB backward] stage 5/10 | ep 5/6 | iter 531/720 | lr:4.22e-06 | loss:-0.1959 | nelbo:-0.1615 | 2:11:27.01
+[SB backward] stage 5/10 | ep 5/6 | iter 581/720 | lr:4.22e-06 | loss:-0.2608 | nelbo:-0.2274 | 2:11:31.82
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  12%|██▍                | 5/40 [00:00<00:00, 45.27it/s]Forward SDE sampling...:  28%|████▉             | 11/40 [00:00<00:00, 49.91it/s]Forward SDE sampling...:  42%|███████▋          | 17/40 [00:00<00:00, 51.37it/s]Forward SDE sampling...:  57%|██████████▎       | 23/40 [00:00<00:00, 52.07it/s]Forward SDE sampling...:  72%|█████████████     | 29/40 [00:00<00:00, 52.45it/s]Forward SDE sampling...:  88%|███████████████▊  | 35/40 [00:00<00:00, 52.43it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 51.88it/s]
+[SB backward] stage 5/10 | ep 6/6 | iter 601/720 | lr:4.19e-06 | loss:-0.2400 | nelbo:-0.2061 | 2:11:34.72
+[SB backward] stage 5/10 | ep 6/6 | iter 651/720 | lr:4.19e-06 | loss:-0.2429 | nelbo:-0.2084 | 2:11:39.51
+[SB backward] stage 5/10 | ep 6/6 | iter 701/720 | lr:4.19e-06 | loss:-0.2267 | nelbo:-0.1937 | 2:11:44.31
+  0%|                                                                         | 0/1 [00:00<?, ?it/s]100%|█████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  1.95it/s]100%|█████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  1.95it/s]
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  40%|██████▍         | 16/40 [00:00<00:00, 155.42it/s]backward SDE sampling...:  80%|████████████▊   | 32/40 [00:00<00:00, 156.12it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 156.00it/s]/home/caohaoqun/CSBI_replicant/runner.py:372: UserWarning: torch.nn.utils.clip_grad_norm is now deprecated in favor of torch.nn.utils.clip_grad_norm_.
+  torch.nn.utils.clip_grad_norm(policy.parameters(), opt.grad_clip)
+
+[SB forward] stage 5/10 | ep 1/6 | iter 1/720 | lr:7.59e-07 | loss:-0.0035 | nelbo:3.0636 | 2:11:49.04
+[SB forward] stage 5/10 | ep 1/6 | iter 51/720 | lr:7.59e-07 | loss:-0.0047 | nelbo:3.6388 | 2:12:00.91
+[SB forward] stage 5/10 | ep 1/6 | iter 101/720 | lr:7.59e-07 | loss:-0.0041 | nelbo:3.5858 | 2:12:12.80
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  38%|██████          | 15/40 [00:00<00:00, 149.07it/s]backward SDE sampling...:  78%|████████████▍   | 31/40 [00:00<00:00, 153.61it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 153.72it/s]
+[SB forward] stage 5/10 | ep 2/6 | iter 121/720 | lr:7.53e-07 | loss:-0.0050 | nelbo:3.4301 | 2:12:18.01
+[SB forward] stage 5/10 | ep 2/6 | iter 171/720 | lr:7.53e-07 | loss:-0.0049 | nelbo:3.5005 | 2:12:29.82
+[SB forward] stage 5/10 | ep 2/6 | iter 221/720 | lr:7.53e-07 | loss:-0.0073 | nelbo:3.7796 | 2:12:41.69
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  38%|██████          | 15/40 [00:00<00:00, 147.89it/s]backward SDE sampling...:  78%|████████████▍   | 31/40 [00:00<00:00, 152.68it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 152.77it/s]
+[SB forward] stage 5/10 | ep 3/6 | iter 241/720 | lr:7.47e-07 | loss:-0.0041 | nelbo:3.3879 | 2:12:46.89
+[SB forward] stage 5/10 | ep 3/6 | iter 291/720 | lr:7.47e-07 | loss:-0.0077 | nelbo:3.8975 | 2:12:58.77
+[SB forward] stage 5/10 | ep 3/6 | iter 341/720 | lr:7.47e-07 | loss:-0.0064 | nelbo:3.8144 | 2:13:10.60
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  38%|██████          | 15/40 [00:00<00:00, 147.97it/s]backward SDE sampling...:  78%|████████████▍   | 31/40 [00:00<00:00, 153.22it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 153.32it/s]
+[SB forward] stage 5/10 | ep 4/6 | iter 361/720 | lr:7.41e-07 | loss:-0.0061 | nelbo:3.9031 | 2:13:15.81
+[SB forward] stage 5/10 | ep 4/6 | iter 411/720 | lr:7.41e-07 | loss:-0.0049 | nelbo:3.5923 | 2:13:27.63
+[SB forward] stage 5/10 | ep 4/6 | iter 461/720 | lr:7.41e-07 | loss:-0.0055 | nelbo:3.4951 | 2:13:39.43
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  38%|██████          | 15/40 [00:00<00:00, 148.23it/s]backward SDE sampling...:  78%|████████████▍   | 31/40 [00:00<00:00, 153.53it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 153.64it/s]
+[SB forward] stage 5/10 | ep 5/6 | iter 481/720 | lr:7.36e-07 | loss:-0.0037 | nelbo:3.3076 | 2:13:44.62
+[SB forward] stage 5/10 | ep 5/6 | iter 531/720 | lr:7.36e-07 | loss:-0.0053 | nelbo:3.6140 | 2:13:56.43
+[SB forward] stage 5/10 | ep 5/6 | iter 581/720 | lr:7.36e-07 | loss:-0.0061 | nelbo:3.8844 | 2:14:08.25
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  38%|██████          | 15/40 [00:00<00:00, 149.15it/s]backward SDE sampling...:  78%|████████████▍   | 31/40 [00:00<00:00, 153.40it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 153.44it/s]
+[SB forward] stage 5/10 | ep 6/6 | iter 601/720 | lr:7.30e-07 | loss:-0.0040 | nelbo:3.7837 | 2:14:13.43
+[SB forward] stage 5/10 | ep 6/6 | iter 651/720 | lr:7.30e-07 | loss:-0.0064 | nelbo:3.6480 | 2:14:25.32
+[SB forward] stage 5/10 | ep 6/6 | iter 701/720 | lr:7.30e-07 | loss:-0.0052 | nelbo:3.3261 | 2:14:37.20
+checkpoint saved: results/parametric_Unetv2_Transformerv2_ve_alternate_imputation_v2_dsm_imputation_v2_12_29_2023_194438_'backward_cnt'/stage_4_fb.npz
+save opt:results/parametric_Unetv2_Transformerv2_ve_alternate_imputation_v2_dsm_imputation_v2_12_29_2023_194438_'backward_cnt'/opt.yaml
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  15%|██▊                | 6/40 [00:00<00:00, 51.51it/s]Forward SDE sampling...:  30%|█████▍            | 12/40 [00:00<00:00, 52.65it/s]Forward SDE sampling...:  45%|████████          | 18/40 [00:00<00:00, 53.04it/s]Forward SDE sampling...:  60%|██████████▊       | 24/40 [00:00<00:00, 53.23it/s]Forward SDE sampling...:  75%|█████████████▌    | 30/40 [00:00<00:00, 53.32it/s]Forward SDE sampling...:  90%|████████████████▏ | 36/40 [00:00<00:00, 53.40it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 53.18it/s]/home/caohaoqun/CSBI_replicant/runner.py:552: UserWarning: torch.nn.utils.clip_grad_norm is now deprecated in favor of torch.nn.utils.clip_grad_norm_.
+  torch.nn.utils.clip_grad_norm(policy.parameters(), opt.grad_clip)
+
+[SB backward] stage 6/10 | ep 1/6 | iter 1/720 | lr:4.16e-06 | loss:-0.1750 | nelbo:-0.1345 | 2:14:42.97
+[SB backward] stage 6/10 | ep 1/6 | iter 51/720 | lr:4.16e-06 | loss:-0.2346 | nelbo:-0.1940 | 2:14:47.75
+[SB backward] stage 6/10 | ep 1/6 | iter 101/720 | lr:4.16e-06 | loss:-0.2130 | nelbo:-0.1740 | 2:14:52.54
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  12%|██▍                | 5/40 [00:00<00:00, 47.29it/s]Forward SDE sampling...:  28%|████▉             | 11/40 [00:00<00:00, 50.97it/s]Forward SDE sampling...:  42%|███████▋          | 17/40 [00:00<00:00, 52.08it/s]Forward SDE sampling...:  57%|██████████▎       | 23/40 [00:00<00:00, 52.59it/s]Forward SDE sampling...:  72%|█████████████     | 29/40 [00:00<00:00, 52.87it/s]Forward SDE sampling...:  88%|███████████████▊  | 35/40 [00:00<00:00, 53.02it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 52.51it/s]
+[SB backward] stage 6/10 | ep 2/6 | iter 121/720 | lr:4.13e-06 | loss:-0.2532 | nelbo:-0.2114 | 2:14:55.42
+[SB backward] stage 6/10 | ep 2/6 | iter 171/720 | lr:4.13e-06 | loss:-0.2770 | nelbo:-0.2344 | 2:15:00.21
+[SB backward] stage 6/10 | ep 2/6 | iter 221/720 | lr:4.13e-06 | loss:-0.2554 | nelbo:-0.2130 | 2:15:05.00
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  12%|██▍                | 5/40 [00:00<00:00, 47.15it/s]Forward SDE sampling...:  28%|████▉             | 11/40 [00:00<00:00, 50.95it/s]Forward SDE sampling...:  42%|███████▋          | 17/40 [00:00<00:00, 52.10it/s]Forward SDE sampling...:  57%|██████████▎       | 23/40 [00:00<00:00, 52.65it/s]Forward SDE sampling...:  72%|█████████████     | 29/40 [00:00<00:00, 52.94it/s]Forward SDE sampling...:  88%|███████████████▊  | 35/40 [00:00<00:00, 53.13it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 52.58it/s]
+[SB backward] stage 6/10 | ep 3/6 | iter 241/720 | lr:4.10e-06 | loss:-0.2721 | nelbo:-0.2323 | 2:15:07.88
+[SB backward] stage 6/10 | ep 3/6 | iter 291/720 | lr:4.10e-06 | loss:-0.2213 | nelbo:-0.1836 | 2:15:12.68
+[SB backward] stage 6/10 | ep 3/6 | iter 341/720 | lr:4.10e-06 | loss:-0.2731 | nelbo:-0.2353 | 2:15:17.47
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  12%|██▍                | 5/40 [00:00<00:00, 46.39it/s]Forward SDE sampling...:  28%|████▉             | 11/40 [00:00<00:00, 50.61it/s]Forward SDE sampling...:  42%|███████▋          | 17/40 [00:00<00:00, 51.89it/s]Forward SDE sampling...:  57%|██████████▎       | 23/40 [00:00<00:00, 52.48it/s]Forward SDE sampling...:  72%|█████████████     | 29/40 [00:00<00:00, 52.79it/s]Forward SDE sampling...:  88%|███████████████▊  | 35/40 [00:00<00:00, 52.98it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 52.38it/s]
+[SB backward] stage 6/10 | ep 4/6 | iter 361/720 | lr:4.06e-06 | loss:-0.2186 | nelbo:-0.1773 | 2:15:20.35
+[SB backward] stage 6/10 | ep 4/6 | iter 411/720 | lr:4.06e-06 | loss:-0.2716 | nelbo:-0.2323 | 2:15:25.13
+[SB backward] stage 6/10 | ep 4/6 | iter 461/720 | lr:4.06e-06 | loss:-0.2717 | nelbo:-0.2311 | 2:15:29.92
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  12%|██▍                | 5/40 [00:00<00:00, 47.72it/s]Forward SDE sampling...:  28%|████▉             | 11/40 [00:00<00:00, 51.13it/s]Forward SDE sampling...:  42%|███████▋          | 17/40 [00:00<00:00, 52.17it/s]Forward SDE sampling...:  57%|██████████▎       | 23/40 [00:00<00:00, 52.62it/s]Forward SDE sampling...:  72%|█████████████     | 29/40 [00:00<00:00, 52.86it/s]Forward SDE sampling...:  88%|███████████████▊  | 35/40 [00:00<00:00, 53.01it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 52.53it/s]
+[SB backward] stage 6/10 | ep 5/6 | iter 481/720 | lr:4.03e-06 | loss:-0.2760 | nelbo:-0.2360 | 2:15:32.81
+[SB backward] stage 6/10 | ep 5/6 | iter 531/720 | lr:4.03e-06 | loss:-0.2164 | nelbo:-0.1758 | 2:15:37.61
+[SB backward] stage 6/10 | ep 5/6 | iter 581/720 | lr:4.03e-06 | loss:-0.3062 | nelbo:-0.2660 | 2:15:42.39
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  12%|██▍                | 5/40 [00:00<00:00, 46.57it/s]Forward SDE sampling...:  28%|████▉             | 11/40 [00:00<00:00, 50.31it/s]Forward SDE sampling...:  42%|███████▋          | 17/40 [00:00<00:00, 51.77it/s]Forward SDE sampling...:  57%|██████████▎       | 23/40 [00:00<00:00, 52.45it/s]Forward SDE sampling...:  72%|█████████████     | 29/40 [00:00<00:00, 52.85it/s]Forward SDE sampling...:  88%|███████████████▊  | 35/40 [00:00<00:00, 53.07it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 52.42it/s]
+[SB backward] stage 6/10 | ep 6/6 | iter 601/720 | lr:4.00e-06 | loss:-0.2412 | nelbo:-0.2016 | 2:15:45.28
+[SB backward] stage 6/10 | ep 6/6 | iter 651/720 | lr:4.00e-06 | loss:-0.2141 | nelbo:-0.1745 | 2:15:50.07
+[SB backward] stage 6/10 | ep 6/6 | iter 701/720 | lr:4.00e-06 | loss:-0.2678 | nelbo:-0.2289 | 2:15:54.86
+  0%|                                                                         | 0/1 [00:00<?, ?it/s]100%|█████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  1.97it/s]100%|█████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  1.97it/s]
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  40%|██████▍         | 16/40 [00:00<00:00, 154.59it/s]backward SDE sampling...:  80%|████████████▊   | 32/40 [00:00<00:00, 155.40it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 155.29it/s]/home/caohaoqun/CSBI_replicant/runner.py:372: UserWarning: torch.nn.utils.clip_grad_norm is now deprecated in favor of torch.nn.utils.clip_grad_norm_.
+  torch.nn.utils.clip_grad_norm(policy.parameters(), opt.grad_clip)
+
+[SB forward] stage 6/10 | ep 1/6 | iter 1/720 | lr:7.24e-07 | loss:-0.0064 | nelbo:3.6516 | 2:15:59.64
+[SB forward] stage 6/10 | ep 1/6 | iter 51/720 | lr:7.24e-07 | loss:-0.0044 | nelbo:3.6079 | 2:16:11.47
+[SB forward] stage 6/10 | ep 1/6 | iter 101/720 | lr:7.24e-07 | loss:-0.0038 | nelbo:3.0747 | 2:16:23.32
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  38%|██████          | 15/40 [00:00<00:00, 148.45it/s]backward SDE sampling...:  78%|████████████▍   | 31/40 [00:00<00:00, 152.99it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 153.16it/s]
+[SB forward] stage 6/10 | ep 2/6 | iter 121/720 | lr:7.19e-07 | loss:-0.0054 | nelbo:3.6177 | 2:16:28.53
+[SB forward] stage 6/10 | ep 2/6 | iter 171/720 | lr:7.19e-07 | loss:-0.0067 | nelbo:3.6824 | 2:16:40.39
+[SB forward] stage 6/10 | ep 2/6 | iter 221/720 | lr:7.19e-07 | loss:-0.0056 | nelbo:3.7036 | 2:16:52.21
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  38%|██████          | 15/40 [00:00<00:00, 147.88it/s]backward SDE sampling...:  78%|████████████▍   | 31/40 [00:00<00:00, 152.92it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 153.00it/s]
+[SB forward] stage 6/10 | ep 3/6 | iter 241/720 | lr:7.13e-07 | loss:-0.0043 | nelbo:3.5147 | 2:16:57.39
+[SB forward] stage 6/10 | ep 3/6 | iter 291/720 | lr:7.13e-07 | loss:-0.0071 | nelbo:3.6689 | 2:17:09.25
+[SB forward] stage 6/10 | ep 3/6 | iter 341/720 | lr:7.13e-07 | loss:-0.0064 | nelbo:3.7141 | 2:17:21.10
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  28%|████▍           | 11/40 [00:00<00:00, 105.65it/s]backward SDE sampling...:  55%|█████████▎       | 22/40 [00:00<00:00, 98.99it/s]backward SDE sampling...:  90%|██████████████▍ | 36/40 [00:00<00:00, 115.29it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 114.32it/s]
+[SB forward] stage 6/10 | ep 4/6 | iter 361/720 | lr:7.08e-07 | loss:-0.0043 | nelbo:3.8710 | 2:17:26.52
+[SB forward] stage 6/10 | ep 4/6 | iter 411/720 | lr:7.08e-07 | loss:-0.0051 | nelbo:3.4485 | 2:17:38.88
+[SB forward] stage 6/10 | ep 4/6 | iter 461/720 | lr:7.08e-07 | loss:-0.0059 | nelbo:3.4992 | 2:17:50.88
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  38%|██████          | 15/40 [00:00<00:00, 145.71it/s]backward SDE sampling...:  78%|████████████▍   | 31/40 [00:00<00:00, 149.34it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 149.39it/s]
+[SB forward] stage 6/10 | ep 5/6 | iter 481/720 | lr:7.03e-07 | loss:-0.0039 | nelbo:3.5374 | 2:17:56.17
+[SB forward] stage 6/10 | ep 5/6 | iter 531/720 | lr:7.03e-07 | loss:-0.0055 | nelbo:3.6862 | 2:18:08.33
+[SB forward] stage 6/10 | ep 5/6 | iter 581/720 | lr:7.03e-07 | loss:-0.0062 | nelbo:3.5296 | 2:18:20.46
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  38%|██████          | 15/40 [00:00<00:00, 142.63it/s]backward SDE sampling...:  78%|████████████▍   | 31/40 [00:00<00:00, 147.05it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 147.06it/s]
+[SB forward] stage 6/10 | ep 6/6 | iter 601/720 | lr:6.97e-07 | loss:-0.0067 | nelbo:3.5392 | 2:18:25.78
+[SB forward] stage 6/10 | ep 6/6 | iter 651/720 | lr:6.97e-07 | loss:-0.0063 | nelbo:3.3089 | 2:18:37.89
+[SB forward] stage 6/10 | ep 6/6 | iter 701/720 | lr:6.97e-07 | loss:-0.0064 | nelbo:3.5999 | 2:18:49.92
+checkpoint saved: results/parametric_Unetv2_Transformerv2_ve_alternate_imputation_v2_dsm_imputation_v2_12_29_2023_194438_'backward_cnt'/stage_5_fb.npz
+save opt:results/parametric_Unetv2_Transformerv2_ve_alternate_imputation_v2_dsm_imputation_v2_12_29_2023_194438_'backward_cnt'/opt.yaml
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  12%|██▍                | 5/40 [00:00<00:00, 49.80it/s]Forward SDE sampling...:  28%|████▉             | 11/40 [00:00<00:00, 51.37it/s]Forward SDE sampling...:  42%|███████▋          | 17/40 [00:00<00:00, 51.88it/s]Forward SDE sampling...:  57%|██████████▎       | 23/40 [00:00<00:00, 52.06it/s]Forward SDE sampling...:  72%|█████████████     | 29/40 [00:00<00:00, 52.20it/s]Forward SDE sampling...:  88%|███████████████▊  | 35/40 [00:00<00:00, 52.28it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 52.06it/s]/home/caohaoqun/CSBI_replicant/runner.py:552: UserWarning: torch.nn.utils.clip_grad_norm is now deprecated in favor of torch.nn.utils.clip_grad_norm_.
+  torch.nn.utils.clip_grad_norm(policy.parameters(), opt.grad_clip)
+
+[SB backward] stage 7/10 | ep 1/6 | iter 1/720 | lr:3.97e-06 | loss:-0.2596 | nelbo:-0.2144 | 2:18:55.81
+[SB backward] stage 7/10 | ep 1/6 | iter 51/720 | lr:3.97e-06 | loss:-0.2501 | nelbo:-0.2076 | 2:19:00.70
+[SB backward] stage 7/10 | ep 1/6 | iter 101/720 | lr:3.97e-06 | loss:-0.2597 | nelbo:-0.2145 | 2:19:05.59
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  12%|██▍                | 5/40 [00:00<00:00, 45.54it/s]Forward SDE sampling...:  28%|████▉             | 11/40 [00:00<00:00, 49.55it/s]Forward SDE sampling...:  42%|███████▋          | 17/40 [00:00<00:00, 50.80it/s]Forward SDE sampling...:  57%|██████████▎       | 23/40 [00:00<00:00, 51.37it/s]Forward SDE sampling...:  72%|█████████████     | 29/40 [00:00<00:00, 51.68it/s]Forward SDE sampling...:  88%|███████████████▊  | 35/40 [00:00<00:00, 51.89it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 51.29it/s]
+[SB backward] stage 7/10 | ep 2/6 | iter 121/720 | lr:3.94e-06 | loss:-0.2231 | nelbo:-0.1797 | 2:19:08.50
+[SB backward] stage 7/10 | ep 2/6 | iter 171/720 | lr:3.94e-06 | loss:-0.1968 | nelbo:-0.1527 | 2:19:13.33
+[SB backward] stage 7/10 | ep 2/6 | iter 221/720 | lr:3.94e-06 | loss:-0.2649 | nelbo:-0.2207 | 2:19:18.15
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  12%|██▍                | 5/40 [00:00<00:00, 46.85it/s]Forward SDE sampling...:  28%|████▉             | 11/40 [00:00<00:00, 50.26it/s]Forward SDE sampling...:  42%|███████▋          | 17/40 [00:00<00:00, 51.29it/s]Forward SDE sampling...:  57%|██████████▎       | 23/40 [00:00<00:00, 51.77it/s]Forward SDE sampling...:  72%|█████████████     | 29/40 [00:00<00:00, 52.06it/s]Forward SDE sampling...:  88%|███████████████▊  | 35/40 [00:00<00:00, 52.22it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 51.72it/s]
+[SB backward] stage 7/10 | ep 3/6 | iter 241/720 | lr:3.91e-06 | loss:-0.2675 | nelbo:-0.2248 | 2:19:21.07
+[SB backward] stage 7/10 | ep 3/6 | iter 291/720 | lr:3.91e-06 | loss:-0.2951 | nelbo:-0.2520 | 2:19:25.89
+[SB backward] stage 7/10 | ep 3/6 | iter 341/720 | lr:3.91e-06 | loss:-0.2652 | nelbo:-0.2217 | 2:19:30.70
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  12%|██▍                | 5/40 [00:00<00:00, 45.70it/s]Forward SDE sampling...:  28%|████▉             | 11/40 [00:00<00:00, 49.64it/s]Forward SDE sampling...:  42%|███████▋          | 17/40 [00:00<00:00, 50.84it/s]Forward SDE sampling...:  57%|██████████▎       | 23/40 [00:00<00:00, 51.38it/s]Forward SDE sampling...:  72%|█████████████     | 29/40 [00:00<00:00, 51.63it/s]Forward SDE sampling...:  88%|███████████████▊  | 35/40 [00:00<00:00, 51.78it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 51.24it/s]
+[SB backward] stage 7/10 | ep 4/6 | iter 361/720 | lr:3.88e-06 | loss:-0.2633 | nelbo:-0.2201 | 2:19:33.62
+[SB backward] stage 7/10 | ep 4/6 | iter 411/720 | lr:3.88e-06 | loss:-0.2220 | nelbo:-0.1787 | 2:19:38.44
+[SB backward] stage 7/10 | ep 4/6 | iter 461/720 | lr:3.88e-06 | loss:-0.2832 | nelbo:-0.2403 | 2:19:43.25
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  10%|█▉                 | 4/40 [00:00<00:01, 32.95it/s]Forward SDE sampling...:  25%|████▌             | 10/40 [00:00<00:00, 43.83it/s]Forward SDE sampling...:  40%|███████▏          | 16/40 [00:00<00:00, 48.16it/s]Forward SDE sampling...:  55%|█████████▉        | 22/40 [00:00<00:00, 50.28it/s]Forward SDE sampling...:  70%|████████████▌     | 28/40 [00:00<00:00, 51.47it/s]Forward SDE sampling...:  85%|███████████████▎  | 34/40 [00:00<00:00, 52.19it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 52.66it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 50.19it/s]
+[SB backward] stage 7/10 | ep 5/6 | iter 481/720 | lr:3.85e-06 | loss:-0.2534 | nelbo:-0.2107 | 2:19:46.18
+[SB backward] stage 7/10 | ep 5/6 | iter 531/720 | lr:3.85e-06 | loss:-0.2780 | nelbo:-0.2344 | 2:19:51.05
+[SB backward] stage 7/10 | ep 5/6 | iter 581/720 | lr:3.85e-06 | loss:-0.2740 | nelbo:-0.2316 | 2:19:55.91
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  12%|██▍                | 5/40 [00:00<00:00, 46.55it/s]Forward SDE sampling...:  28%|████▉             | 11/40 [00:00<00:00, 50.72it/s]Forward SDE sampling...:  42%|███████▋          | 17/40 [00:00<00:00, 52.03it/s]Forward SDE sampling...:  57%|██████████▎       | 23/40 [00:00<00:00, 52.65it/s]Forward SDE sampling...:  72%|█████████████     | 29/40 [00:00<00:00, 53.00it/s]Forward SDE sampling...:  88%|███████████████▊  | 35/40 [00:00<00:00, 53.19it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 52.58it/s]
+[SB backward] stage 7/10 | ep 6/6 | iter 601/720 | lr:3.82e-06 | loss:-0.2181 | nelbo:-0.1733 | 2:19:58.82
+[SB backward] stage 7/10 | ep 6/6 | iter 651/720 | lr:3.82e-06 | loss:-0.2718 | nelbo:-0.2262 | 2:20:03.70
+[SB backward] stage 7/10 | ep 6/6 | iter 701/720 | lr:3.82e-06 | loss:-0.2404 | nelbo:-0.1944 | 2:20:08.57
+  0%|                                                                         | 0/1 [00:00<?, ?it/s]100%|█████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  1.98it/s]100%|█████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  1.98it/s]
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  40%|██████▍         | 16/40 [00:00<00:00, 155.61it/s]backward SDE sampling...:  80%|████████████▊   | 32/40 [00:00<00:00, 156.31it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 156.22it/s]/home/caohaoqun/CSBI_replicant/runner.py:372: UserWarning: torch.nn.utils.clip_grad_norm is now deprecated in favor of torch.nn.utils.clip_grad_norm_.
+  torch.nn.utils.clip_grad_norm(policy.parameters(), opt.grad_clip)
+
+[SB forward] stage 7/10 | ep 1/6 | iter 1/720 | lr:6.92e-07 | loss:-0.0062 | nelbo:3.7557 | 2:20:13.33
+[SB forward] stage 7/10 | ep 1/6 | iter 51/720 | lr:6.92e-07 | loss:-0.0065 | nelbo:3.5531 | 2:20:25.19
+[SB forward] stage 7/10 | ep 1/6 | iter 101/720 | lr:6.92e-07 | loss:-0.0080 | nelbo:3.7726 | 2:20:37.04
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  40%|██████▍         | 16/40 [00:00<00:00, 151.17it/s]backward SDE sampling...:  80%|████████████▊   | 32/40 [00:00<00:00, 154.93it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 154.90it/s]
+[SB forward] stage 7/10 | ep 2/6 | iter 121/720 | lr:6.87e-07 | loss:-0.0067 | nelbo:3.6992 | 2:20:42.25
+[SB forward] stage 7/10 | ep 2/6 | iter 171/720 | lr:6.87e-07 | loss:-0.0081 | nelbo:3.6097 | 2:20:54.09
+[SB forward] stage 7/10 | ep 2/6 | iter 221/720 | lr:6.87e-07 | loss:-0.0064 | nelbo:3.7708 | 2:21:05.90
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  40%|██████▍         | 16/40 [00:00<00:00, 150.65it/s]backward SDE sampling...:  80%|████████████▊   | 32/40 [00:00<00:00, 154.59it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 154.58it/s]
+[SB forward] stage 7/10 | ep 3/6 | iter 241/720 | lr:6.81e-07 | loss:-0.0066 | nelbo:3.9442 | 2:21:11.08
+[SB forward] stage 7/10 | ep 3/6 | iter 291/720 | lr:6.81e-07 | loss:-0.0079 | nelbo:3.6355 | 2:21:22.98
+[SB forward] stage 7/10 | ep 3/6 | iter 341/720 | lr:6.81e-07 | loss:-0.0066 | nelbo:3.8504 | 2:21:34.83
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  38%|██████          | 15/40 [00:00<00:00, 148.74it/s]backward SDE sampling...:  78%|████████████▍   | 31/40 [00:00<00:00, 153.80it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 153.90it/s]
+[SB forward] stage 7/10 | ep 4/6 | iter 361/720 | lr:6.76e-07 | loss:-0.0070 | nelbo:3.5127 | 2:21:40.03
+[SB forward] stage 7/10 | ep 4/6 | iter 411/720 | lr:6.76e-07 | loss:-0.0063 | nelbo:3.8979 | 2:21:51.90
+[SB forward] stage 7/10 | ep 4/6 | iter 461/720 | lr:6.76e-07 | loss:-0.0048 | nelbo:3.5011 | 2:22:03.77
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  38%|██████          | 15/40 [00:00<00:00, 148.41it/s]backward SDE sampling...:  78%|████████████▍   | 31/40 [00:00<00:00, 153.83it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 153.96it/s]
+[SB forward] stage 7/10 | ep 5/6 | iter 481/720 | lr:6.71e-07 | loss:-0.0057 | nelbo:3.6569 | 2:22:08.97
+[SB forward] stage 7/10 | ep 5/6 | iter 531/720 | lr:6.71e-07 | loss:-0.0066 | nelbo:3.4925 | 2:22:20.81
+[SB forward] stage 7/10 | ep 5/6 | iter 581/720 | lr:6.71e-07 | loss:-0.0067 | nelbo:3.6191 | 2:22:32.66
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  38%|██████          | 15/40 [00:00<00:00, 148.77it/s]backward SDE sampling...:  78%|████████████▍   | 31/40 [00:00<00:00, 153.34it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 153.43it/s]
+[SB forward] stage 7/10 | ep 6/6 | iter 601/720 | lr:6.66e-07 | loss:-0.0049 | nelbo:3.3526 | 2:22:37.94
+[SB forward] stage 7/10 | ep 6/6 | iter 651/720 | lr:6.66e-07 | loss:-0.0073 | nelbo:3.7423 | 2:22:49.80
+[SB forward] stage 7/10 | ep 6/6 | iter 701/720 | lr:6.66e-07 | loss:-0.0059 | nelbo:3.3914 | 2:23:01.66
+checkpoint saved: results/parametric_Unetv2_Transformerv2_ve_alternate_imputation_v2_dsm_imputation_v2_12_29_2023_194438_'backward_cnt'/stage_6_fb.npz
+save opt:results/parametric_Unetv2_Transformerv2_ve_alternate_imputation_v2_dsm_imputation_v2_12_29_2023_194438_'backward_cnt'/opt.yaml
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  15%|██▊                | 6/40 [00:00<00:00, 52.69it/s]Forward SDE sampling...:  30%|█████▍            | 12/40 [00:00<00:00, 53.16it/s]Forward SDE sampling...:  45%|████████          | 18/40 [00:00<00:00, 53.32it/s]Forward SDE sampling...:  60%|██████████▊       | 24/40 [00:00<00:00, 53.41it/s]Forward SDE sampling...:  75%|█████████████▌    | 30/40 [00:00<00:00, 53.44it/s]Forward SDE sampling...:  90%|████████████████▏ | 36/40 [00:00<00:00, 53.47it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 53.38it/s]/home/caohaoqun/CSBI_replicant/runner.py:552: UserWarning: torch.nn.utils.clip_grad_norm is now deprecated in favor of torch.nn.utils.clip_grad_norm_.
+  torch.nn.utils.clip_grad_norm(policy.parameters(), opt.grad_clip)
+
+[SB backward] stage 8/10 | ep 1/6 | iter 1/720 | lr:3.79e-06 | loss:-0.2314 | nelbo:-0.1777 | 2:23:07.43
+[SB backward] stage 8/10 | ep 1/6 | iter 51/720 | lr:3.79e-06 | loss:-0.2507 | nelbo:-0.1994 | 2:23:12.31
+[SB backward] stage 8/10 | ep 1/6 | iter 101/720 | lr:3.79e-06 | loss:-0.2133 | nelbo:-0.1605 | 2:23:17.16
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  12%|██▍                | 5/40 [00:00<00:00, 49.26it/s]Forward SDE sampling...:  28%|████▉             | 11/40 [00:00<00:00, 51.96it/s]Forward SDE sampling...:  42%|███████▋          | 17/40 [00:00<00:00, 52.75it/s]Forward SDE sampling...:  57%|██████████▎       | 23/40 [00:00<00:00, 53.12it/s]Forward SDE sampling...:  72%|█████████████     | 29/40 [00:00<00:00, 53.34it/s]Forward SDE sampling...:  88%|███████████████▊  | 35/40 [00:00<00:00, 53.47it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 53.09it/s]
+[SB backward] stage 8/10 | ep 2/6 | iter 121/720 | lr:3.76e-06 | loss:-0.2405 | nelbo:-0.1943 | 2:23:20.03
+[SB backward] stage 8/10 | ep 2/6 | iter 171/720 | lr:3.76e-06 | loss:-0.2671 | nelbo:-0.2216 | 2:23:24.85
+[SB backward] stage 8/10 | ep 2/6 | iter 221/720 | lr:3.76e-06 | loss:-0.2236 | nelbo:-0.1781 | 2:23:29.65
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  10%|█▉                 | 4/40 [00:00<00:01, 34.99it/s]Forward SDE sampling...:  25%|████▌             | 10/40 [00:00<00:00, 45.79it/s]Forward SDE sampling...:  40%|███████▏          | 16/40 [00:00<00:00, 49.30it/s]Forward SDE sampling...:  55%|█████████▉        | 22/40 [00:00<00:00, 50.98it/s]Forward SDE sampling...:  70%|████████████▌     | 28/40 [00:00<00:00, 51.91it/s]Forward SDE sampling...:  85%|███████████████▎  | 34/40 [00:00<00:00, 52.46it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 52.82it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 50.83it/s]
+[SB backward] stage 8/10 | ep 3/6 | iter 241/720 | lr:3.74e-06 | loss:-0.2356 | nelbo:-0.1892 | 2:23:32.57
+[SB backward] stage 8/10 | ep 3/6 | iter 291/720 | lr:3.74e-06 | loss:-0.2555 | nelbo:-0.2090 | 2:23:37.38
+[SB backward] stage 8/10 | ep 3/6 | iter 341/720 | lr:3.74e-06 | loss:-0.2603 | nelbo:-0.2133 | 2:23:42.19
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  12%|██▍                | 5/40 [00:00<00:00, 46.64it/s]Forward SDE sampling...:  28%|████▉             | 11/40 [00:00<00:00, 50.81it/s]Forward SDE sampling...:  42%|███████▋          | 17/40 [00:00<00:00, 52.10it/s]Forward SDE sampling...:  57%|██████████▎       | 23/40 [00:00<00:00, 52.72it/s]Forward SDE sampling...:  72%|█████████████     | 29/40 [00:00<00:00, 53.05it/s]Forward SDE sampling...:  88%|███████████████▊  | 35/40 [00:00<00:00, 53.25it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 52.63it/s]
+[SB backward] stage 8/10 | ep 4/6 | iter 361/720 | lr:3.71e-06 | loss:-0.2240 | nelbo:-0.1759 | 2:23:45.07
+[SB backward] stage 8/10 | ep 4/6 | iter 411/720 | lr:3.71e-06 | loss:-0.2422 | nelbo:-0.1933 | 2:23:49.87
+[SB backward] stage 8/10 | ep 4/6 | iter 461/720 | lr:3.71e-06 | loss:-0.3283 | nelbo:-0.2795 | 2:23:54.67
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  12%|██▍                | 5/40 [00:00<00:00, 45.57it/s]Forward SDE sampling...:  28%|████▉             | 11/40 [00:00<00:00, 50.25it/s]Forward SDE sampling...:  42%|███████▋          | 17/40 [00:00<00:00, 51.75it/s]Forward SDE sampling...:  57%|██████████▎       | 23/40 [00:00<00:00, 52.47it/s]Forward SDE sampling...:  72%|█████████████     | 29/40 [00:00<00:00, 52.87it/s]Forward SDE sampling...:  88%|███████████████▊  | 35/40 [00:00<00:00, 53.09it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 52.38it/s]
+[SB backward] stage 8/10 | ep 5/6 | iter 481/720 | lr:3.68e-06 | loss:-0.2061 | nelbo:-0.1610 | 2:23:57.57
+[SB backward] stage 8/10 | ep 5/6 | iter 531/720 | lr:3.68e-06 | loss:-0.2880 | nelbo:-0.2423 | 2:24:02.38
+[SB backward] stage 8/10 | ep 5/6 | iter 581/720 | lr:3.68e-06 | loss:-0.2885 | nelbo:-0.2431 | 2:24:07.18
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  12%|██▍                | 5/40 [00:00<00:00, 46.35it/s]Forward SDE sampling...:  28%|████▉             | 11/40 [00:00<00:00, 50.63it/s]Forward SDE sampling...:  42%|███████▋          | 17/40 [00:00<00:00, 51.98it/s]Forward SDE sampling...:  57%|██████████▎       | 23/40 [00:00<00:00, 52.62it/s]Forward SDE sampling...:  72%|█████████████     | 29/40 [00:00<00:00, 52.60it/s]Forward SDE sampling...:  88%|███████████████▊  | 35/40 [00:00<00:00, 52.25it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 51.86it/s]
+[SB backward] stage 8/10 | ep 6/6 | iter 601/720 | lr:3.65e-06 | loss:-0.3101 | nelbo:-0.2562 | 2:24:10.09
+[SB backward] stage 8/10 | ep 6/6 | iter 651/720 | lr:3.65e-06 | loss:-0.2507 | nelbo:-0.1964 | 2:24:14.90
+[SB backward] stage 8/10 | ep 6/6 | iter 701/720 | lr:3.65e-06 | loss:-0.2734 | nelbo:-0.2212 | 2:24:19.69
+  0%|                                                                         | 0/1 [00:00<?, ?it/s]100%|█████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  1.95it/s]100%|█████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  1.95it/s]
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  42%|██████▊         | 17/40 [00:00<00:00, 164.40it/s]backward SDE sampling...:  85%|█████████████▌  | 34/40 [00:00<00:00, 165.35it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 165.02it/s]/home/caohaoqun/CSBI_replicant/runner.py:372: UserWarning: torch.nn.utils.clip_grad_norm is now deprecated in favor of torch.nn.utils.clip_grad_norm_.
+  torch.nn.utils.clip_grad_norm(policy.parameters(), opt.grad_clip)
+
+[SB forward] stage 8/10 | ep 1/6 | iter 1/720 | lr:6.61e-07 | loss:-0.0059 | nelbo:3.4671 | 2:24:24.68
+[SB forward] stage 8/10 | ep 1/6 | iter 51/720 | lr:6.61e-07 | loss:-0.0044 | nelbo:3.4711 | 2:24:36.69
+[SB forward] stage 8/10 | ep 1/6 | iter 101/720 | lr:6.61e-07 | loss:-0.0068 | nelbo:3.9540 | 2:24:48.68
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  38%|██████          | 15/40 [00:00<00:00, 149.09it/s]backward SDE sampling...:  78%|████████████▍   | 31/40 [00:00<00:00, 153.63it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 153.73it/s]
+[SB forward] stage 8/10 | ep 2/6 | iter 121/720 | lr:6.56e-07 | loss:-0.0059 | nelbo:3.5985 | 2:24:53.88
+[SB forward] stage 8/10 | ep 2/6 | iter 171/720 | lr:6.56e-07 | loss:-0.0059 | nelbo:3.4244 | 2:25:05.87
+[SB forward] stage 8/10 | ep 2/6 | iter 221/720 | lr:6.56e-07 | loss:-0.0061 | nelbo:3.2971 | 2:25:17.71
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  38%|██████          | 15/40 [00:00<00:00, 149.05it/s]backward SDE sampling...:  78%|████████████▍   | 31/40 [00:00<00:00, 153.82it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 153.87it/s]
+[SB forward] stage 8/10 | ep 3/6 | iter 241/720 | lr:6.51e-07 | loss:-0.0071 | nelbo:3.7824 | 2:25:22.92
+[SB forward] stage 8/10 | ep 3/6 | iter 291/720 | lr:6.51e-07 | loss:-0.0077 | nelbo:3.8257 | 2:25:34.75
+[SB forward] stage 8/10 | ep 3/6 | iter 341/720 | lr:6.51e-07 | loss:-0.0066 | nelbo:3.3150 | 2:25:46.56
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  38%|██████          | 15/40 [00:00<00:00, 148.92it/s]backward SDE sampling...:  78%|████████████▍   | 31/40 [00:00<00:00, 153.40it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 153.47it/s]
+[SB forward] stage 8/10 | ep 4/6 | iter 361/720 | lr:6.46e-07 | loss:-0.0060 | nelbo:3.7977 | 2:25:51.76
+[SB forward] stage 8/10 | ep 4/6 | iter 411/720 | lr:6.46e-07 | loss:-0.0087 | nelbo:3.8600 | 2:26:03.61
+[SB forward] stage 8/10 | ep 4/6 | iter 461/720 | lr:6.46e-07 | loss:-0.0087 | nelbo:4.1151 | 2:26:15.51
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  38%|██████          | 15/40 [00:00<00:00, 148.74it/s]backward SDE sampling...:  78%|████████████▍   | 31/40 [00:00<00:00, 153.44it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 153.47it/s]
+[SB forward] stage 8/10 | ep 5/6 | iter 481/720 | lr:6.41e-07 | loss:-0.0073 | nelbo:3.7361 | 2:26:20.74
+[SB forward] stage 8/10 | ep 5/6 | iter 531/720 | lr:6.41e-07 | loss:-0.0064 | nelbo:3.4791 | 2:26:32.69
+[SB forward] stage 8/10 | ep 5/6 | iter 581/720 | lr:6.41e-07 | loss:-0.0074 | nelbo:3.5000 | 2:26:44.63
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  38%|██████          | 15/40 [00:00<00:00, 146.54it/s]backward SDE sampling...:  78%|████████████▍   | 31/40 [00:00<00:00, 151.71it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 151.83it/s]
+[SB forward] stage 8/10 | ep 6/6 | iter 601/720 | lr:6.36e-07 | loss:-0.0056 | nelbo:3.4680 | 2:26:49.82
+[SB forward] stage 8/10 | ep 6/6 | iter 651/720 | lr:6.36e-07 | loss:-0.0065 | nelbo:3.8536 | 2:27:01.67
+[SB forward] stage 8/10 | ep 6/6 | iter 701/720 | lr:6.36e-07 | loss:-0.0050 | nelbo:3.8499 | 2:27:13.50
+checkpoint saved: results/parametric_Unetv2_Transformerv2_ve_alternate_imputation_v2_dsm_imputation_v2_12_29_2023_194438_'backward_cnt'/stage_7_fb.npz
+save opt:results/parametric_Unetv2_Transformerv2_ve_alternate_imputation_v2_dsm_imputation_v2_12_29_2023_194438_'backward_cnt'/opt.yaml
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  15%|██▊                | 6/40 [00:00<00:00, 51.45it/s]Forward SDE sampling...:  30%|█████▍            | 12/40 [00:00<00:00, 52.62it/s]Forward SDE sampling...:  45%|████████          | 18/40 [00:00<00:00, 53.04it/s]Forward SDE sampling...:  60%|██████████▊       | 24/40 [00:00<00:00, 53.22it/s]Forward SDE sampling...:  75%|█████████████▌    | 30/40 [00:00<00:00, 53.32it/s]Forward SDE sampling...:  90%|████████████████▏ | 36/40 [00:00<00:00, 53.39it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 53.18it/s]/home/caohaoqun/CSBI_replicant/runner.py:552: UserWarning: torch.nn.utils.clip_grad_norm is now deprecated in favor of torch.nn.utils.clip_grad_norm_.
+  torch.nn.utils.clip_grad_norm(policy.parameters(), opt.grad_clip)
+
+[SB backward] stage 9/10 | ep 1/6 | iter 1/720 | lr:3.62e-06 | loss:-0.2277 | nelbo:-0.1717 | 2:27:19.26
+[SB backward] stage 9/10 | ep 1/6 | iter 51/720 | lr:3.62e-06 | loss:-0.2546 | nelbo:-0.1981 | 2:27:24.10
+[SB backward] stage 9/10 | ep 1/6 | iter 101/720 | lr:3.62e-06 | loss:-0.2496 | nelbo:-0.1940 | 2:27:28.94
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  12%|██▍                | 5/40 [00:00<00:00, 46.41it/s]Forward SDE sampling...:  28%|████▉             | 11/40 [00:00<00:00, 50.63it/s]Forward SDE sampling...:  42%|███████▋          | 17/40 [00:00<00:00, 51.91it/s]Forward SDE sampling...:  57%|██████████▎       | 23/40 [00:00<00:00, 52.51it/s]Forward SDE sampling...:  72%|█████████████     | 29/40 [00:00<00:00, 52.85it/s]Forward SDE sampling...:  88%|███████████████▊  | 35/40 [00:00<00:00, 53.06it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 52.44it/s]
+[SB backward] stage 9/10 | ep 2/6 | iter 121/720 | lr:3.59e-06 | loss:-0.2784 | nelbo:-0.2242 | 2:27:31.85
+[SB backward] stage 9/10 | ep 2/6 | iter 171/720 | lr:3.59e-06 | loss:-0.2287 | nelbo:-0.1737 | 2:27:36.70
+[SB backward] stage 9/10 | ep 2/6 | iter 221/720 | lr:3.59e-06 | loss:-0.2409 | nelbo:-0.1868 | 2:27:41.53
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  12%|██▍                | 5/40 [00:00<00:00, 47.86it/s]Forward SDE sampling...:  28%|████▉             | 11/40 [00:00<00:00, 51.29it/s]Forward SDE sampling...:  42%|███████▋          | 17/40 [00:00<00:00, 52.31it/s]Forward SDE sampling...:  57%|██████████▎       | 23/40 [00:00<00:00, 52.80it/s]Forward SDE sampling...:  72%|█████████████     | 29/40 [00:00<00:00, 53.10it/s]Forward SDE sampling...:  88%|███████████████▊  | 35/40 [00:00<00:00, 53.26it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 52.77it/s]
+[SB backward] stage 9/10 | ep 3/6 | iter 241/720 | lr:3.57e-06 | loss:-0.2323 | nelbo:-0.1773 | 2:27:44.43
+[SB backward] stage 9/10 | ep 3/6 | iter 291/720 | lr:3.57e-06 | loss:-0.2648 | nelbo:-0.2118 | 2:27:49.27
+[SB backward] stage 9/10 | ep 3/6 | iter 341/720 | lr:3.57e-06 | loss:-0.2227 | nelbo:-0.1692 | 2:27:54.12
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  12%|██▍                | 5/40 [00:00<00:00, 45.93it/s]Forward SDE sampling...:  28%|████▉             | 11/40 [00:00<00:00, 50.50it/s]Forward SDE sampling...:  42%|███████▋          | 17/40 [00:00<00:00, 51.95it/s]Forward SDE sampling...:  57%|██████████▎       | 23/40 [00:00<00:00, 52.61it/s]Forward SDE sampling...:  72%|█████████████     | 29/40 [00:00<00:00, 52.98it/s]Forward SDE sampling...:  88%|███████████████▊  | 35/40 [00:00<00:00, 53.20it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 52.52it/s]
+[SB backward] stage 9/10 | ep 4/6 | iter 361/720 | lr:3.54e-06 | loss:-0.2347 | nelbo:-0.1802 | 2:27:57.02
+[SB backward] stage 9/10 | ep 4/6 | iter 411/720 | lr:3.54e-06 | loss:-0.2713 | nelbo:-0.2176 | 2:28:01.84
+[SB backward] stage 9/10 | ep 4/6 | iter 461/720 | lr:3.54e-06 | loss:-0.2372 | nelbo:-0.1833 | 2:28:06.66
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  12%|██▍                | 5/40 [00:00<00:00, 45.69it/s]Forward SDE sampling...:  28%|████▉             | 11/40 [00:00<00:00, 50.31it/s]Forward SDE sampling...:  42%|███████▋          | 17/40 [00:00<00:00, 51.76it/s]Forward SDE sampling...:  57%|██████████▎       | 23/40 [00:00<00:00, 52.44it/s]Forward SDE sampling...:  72%|█████████████     | 29/40 [00:00<00:00, 52.80it/s]Forward SDE sampling...:  88%|███████████████▊  | 35/40 [00:00<00:00, 53.03it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 52.34it/s]
+[SB backward] stage 9/10 | ep 5/6 | iter 481/720 | lr:3.51e-06 | loss:-0.2265 | nelbo:-0.1710 | 2:28:09.55
+[SB backward] stage 9/10 | ep 5/6 | iter 531/720 | lr:3.51e-06 | loss:-0.2340 | nelbo:-0.1795 | 2:28:14.35
+[SB backward] stage 9/10 | ep 5/6 | iter 581/720 | lr:3.51e-06 | loss:-0.2421 | nelbo:-0.1867 | 2:28:19.16
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  12%|██▍                | 5/40 [00:00<00:00, 46.74it/s]Forward SDE sampling...:  28%|████▉             | 11/40 [00:00<00:00, 50.76it/s]Forward SDE sampling...:  42%|███████▋          | 17/40 [00:00<00:00, 52.01it/s]Forward SDE sampling...:  57%|██████████▎       | 23/40 [00:00<00:00, 52.59it/s]Forward SDE sampling...:  72%|█████████████     | 29/40 [00:00<00:00, 52.93it/s]Forward SDE sampling...:  88%|███████████████▊  | 35/40 [00:00<00:00, 53.12it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 52.52it/s]
+[SB backward] stage 9/10 | ep 6/6 | iter 601/720 | lr:3.49e-06 | loss:-0.2499 | nelbo:-0.2006 | 2:28:22.05
+[SB backward] stage 9/10 | ep 6/6 | iter 651/720 | lr:3.49e-06 | loss:-0.2284 | nelbo:-0.1789 | 2:28:26.86
+[SB backward] stage 9/10 | ep 6/6 | iter 701/720 | lr:3.49e-06 | loss:-0.2309 | nelbo:-0.1808 | 2:28:31.67
+  0%|                                                                         | 0/1 [00:00<?, ?it/s]100%|█████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  1.95it/s]100%|█████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  1.95it/s]
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  40%|██████▍         | 16/40 [00:00<00:00, 154.69it/s]backward SDE sampling...:  80%|████████████▊   | 32/40 [00:00<00:00, 155.46it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 155.34it/s]/home/caohaoqun/CSBI_replicant/runner.py:372: UserWarning: torch.nn.utils.clip_grad_norm is now deprecated in favor of torch.nn.utils.clip_grad_norm_.
+  torch.nn.utils.clip_grad_norm(policy.parameters(), opt.grad_clip)
+
+[SB forward] stage 9/10 | ep 1/6 | iter 1/720 | lr:6.31e-07 | loss:-0.0072 | nelbo:3.7675 | 2:28:36.45
+[SB forward] stage 9/10 | ep 1/6 | iter 51/720 | lr:6.31e-07 | loss:-0.0080 | nelbo:3.7394 | 2:28:48.22
+[SB forward] stage 9/10 | ep 1/6 | iter 101/720 | lr:6.31e-07 | loss:-0.0056 | nelbo:3.3703 | 2:29:00.02
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  38%|██████          | 15/40 [00:00<00:00, 147.38it/s]backward SDE sampling...:  78%|████████████▍   | 31/40 [00:00<00:00, 152.38it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 152.48it/s]
+[SB forward] stage 9/10 | ep 2/6 | iter 121/720 | lr:6.26e-07 | loss:-0.0092 | nelbo:3.6853 | 2:29:05.21
+[SB forward] stage 9/10 | ep 2/6 | iter 171/720 | lr:6.26e-07 | loss:-0.0065 | nelbo:3.6052 | 2:29:17.18
+[SB forward] stage 9/10 | ep 2/6 | iter 221/720 | lr:6.26e-07 | loss:-0.0078 | nelbo:3.6384 | 2:29:29.12
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  38%|██████          | 15/40 [00:00<00:00, 148.96it/s]backward SDE sampling...:  78%|████████████▍   | 31/40 [00:00<00:00, 153.52it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 153.60it/s]
+[SB forward] stage 9/10 | ep 3/6 | iter 241/720 | lr:6.21e-07 | loss:-0.0064 | nelbo:3.3294 | 2:29:34.26
+[SB forward] stage 9/10 | ep 3/6 | iter 291/720 | lr:6.21e-07 | loss:-0.0063 | nelbo:3.3696 | 2:29:46.11
+[SB forward] stage 9/10 | ep 3/6 | iter 341/720 | lr:6.21e-07 | loss:-0.0061 | nelbo:3.4506 | 2:29:57.99
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  38%|██████          | 15/40 [00:00<00:00, 147.72it/s]backward SDE sampling...:  78%|████████████▍   | 31/40 [00:00<00:00, 153.13it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 152.80it/s]
+[SB forward] stage 9/10 | ep 4/6 | iter 361/720 | lr:6.17e-07 | loss:-0.0072 | nelbo:3.6638 | 2:30:03.20
+[SB forward] stage 9/10 | ep 4/6 | iter 411/720 | lr:6.17e-07 | loss:-0.0064 | nelbo:3.4243 | 2:30:15.08
+[SB forward] stage 9/10 | ep 4/6 | iter 461/720 | lr:6.17e-07 | loss:-0.0065 | nelbo:3.4043 | 2:30:26.93
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  38%|██████          | 15/40 [00:00<00:00, 147.89it/s]backward SDE sampling...:  78%|████████████▍   | 31/40 [00:00<00:00, 152.68it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 152.85it/s]
+[SB forward] stage 9/10 | ep 5/6 | iter 481/720 | lr:6.12e-07 | loss:-0.0069 | nelbo:3.7333 | 2:30:32.15
+[SB forward] stage 9/10 | ep 5/6 | iter 531/720 | lr:6.12e-07 | loss:-0.0065 | nelbo:3.6656 | 2:30:44.07
+[SB forward] stage 9/10 | ep 5/6 | iter 581/720 | lr:6.12e-07 | loss:-0.0068 | nelbo:3.3273 | 2:30:56.00
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  38%|██████          | 15/40 [00:00<00:00, 148.01it/s]backward SDE sampling...:  78%|████████████▍   | 31/40 [00:00<00:00, 152.30it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 152.42it/s]
+[SB forward] stage 9/10 | ep 6/6 | iter 601/720 | lr:6.07e-07 | loss:-0.0072 | nelbo:3.5497 | 2:31:01.18
+[SB forward] stage 9/10 | ep 6/6 | iter 651/720 | lr:6.07e-07 | loss:-0.0081 | nelbo:3.8044 | 2:31:13.05
+[SB forward] stage 9/10 | ep 6/6 | iter 701/720 | lr:6.07e-07 | loss:-0.0079 | nelbo:3.8745 | 2:31:24.97
+checkpoint saved: results/parametric_Unetv2_Transformerv2_ve_alternate_imputation_v2_dsm_imputation_v2_12_29_2023_194438_'backward_cnt'/stage_8_fb.npz
+save opt:results/parametric_Unetv2_Transformerv2_ve_alternate_imputation_v2_dsm_imputation_v2_12_29_2023_194438_'backward_cnt'/opt.yaml
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  15%|██▊                | 6/40 [00:00<00:00, 50.92it/s]Forward SDE sampling...:  30%|█████▍            | 12/40 [00:00<00:00, 52.02it/s]Forward SDE sampling...:  45%|████████          | 18/40 [00:00<00:00, 52.42it/s]Forward SDE sampling...:  60%|██████████▊       | 24/40 [00:00<00:00, 52.61it/s]Forward SDE sampling...:  75%|█████████████▌    | 30/40 [00:00<00:00, 52.71it/s]Forward SDE sampling...:  90%|████████████████▏ | 36/40 [00:00<00:00, 52.77it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 52.57it/s]/home/caohaoqun/CSBI_replicant/runner.py:552: UserWarning: torch.nn.utils.clip_grad_norm is now deprecated in favor of torch.nn.utils.clip_grad_norm_.
+  torch.nn.utils.clip_grad_norm(policy.parameters(), opt.grad_clip)
+
+[SB backward] stage 10/10 | ep 1/6 | iter 1/720 | lr:3.46e-06 | loss:-0.2685 | nelbo:-0.2108 | 2:31:30.80
+[SB backward] stage 10/10 | ep 1/6 | iter 51/720 | lr:3.46e-06 | loss:-0.2517 | nelbo:-0.1921 | 2:31:35.61
+[SB backward] stage 10/10 | ep 1/6 | iter 101/720 | lr:3.46e-06 | loss:-0.2559 | nelbo:-0.1967 | 2:31:40.42
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  12%|██▍                | 5/40 [00:00<00:00, 46.19it/s]Forward SDE sampling...:  28%|████▉             | 11/40 [00:00<00:00, 50.40it/s]Forward SDE sampling...:  42%|███████▋          | 17/40 [00:00<00:00, 51.66it/s]Forward SDE sampling...:  57%|██████████▎       | 23/40 [00:00<00:00, 52.24it/s]Forward SDE sampling...:  72%|█████████████     | 29/40 [00:00<00:00, 52.35it/s]Forward SDE sampling...:  88%|███████████████▊  | 35/40 [00:00<00:00, 52.62it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 52.08it/s]
+[SB backward] stage 10/10 | ep 2/6 | iter 121/720 | lr:3.43e-06 | loss:-0.2537 | nelbo:-0.1985 | 2:31:43.32
+[SB backward] stage 10/10 | ep 2/6 | iter 171/720 | lr:3.43e-06 | loss:-0.1786 | nelbo:-0.1232 | 2:31:48.13
+[SB backward] stage 10/10 | ep 2/6 | iter 221/720 | lr:3.43e-06 | loss:-0.2547 | nelbo:-0.1987 | 2:31:52.94
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  12%|██▍                | 5/40 [00:00<00:00, 45.49it/s]Forward SDE sampling...:  28%|████▉             | 11/40 [00:00<00:00, 49.64it/s]Forward SDE sampling...:  42%|███████▋          | 17/40 [00:00<00:00, 50.93it/s]Forward SDE sampling...:  57%|██████████▎       | 23/40 [00:00<00:00, 51.49it/s]Forward SDE sampling...:  72%|█████████████     | 29/40 [00:00<00:00, 51.78it/s]Forward SDE sampling...:  88%|███████████████▊  | 35/40 [00:00<00:00, 52.02it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 51.41it/s]
+[SB backward] stage 10/10 | ep 3/6 | iter 241/720 | lr:3.41e-06 | loss:-0.2492 | nelbo:-0.1951 | 2:31:55.86
+[SB backward] stage 10/10 | ep 3/6 | iter 291/720 | lr:3.41e-06 | loss:-0.2960 | nelbo:-0.2410 | 2:32:00.71
+[SB backward] stage 10/10 | ep 3/6 | iter 341/720 | lr:3.41e-06 | loss:-0.2497 | nelbo:-0.1959 | 2:32:05.55
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  12%|██▍                | 5/40 [00:00<00:00, 45.50it/s]Forward SDE sampling...:  28%|████▉             | 11/40 [00:00<00:00, 49.62it/s]Forward SDE sampling...:  42%|███████▋          | 17/40 [00:00<00:00, 50.83it/s]Forward SDE sampling...:  57%|██████████▎       | 23/40 [00:00<00:00, 51.20it/s]Forward SDE sampling...:  72%|█████████████     | 29/40 [00:00<00:00, 51.64it/s]Forward SDE sampling...:  88%|███████████████▊  | 35/40 [00:00<00:00, 51.90it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 51.31it/s]
+[SB backward] stage 10/10 | ep 4/6 | iter 361/720 | lr:3.38e-06 | loss:-0.2636 | nelbo:-0.2074 | 2:32:08.49
+[SB backward] stage 10/10 | ep 4/6 | iter 411/720 | lr:3.38e-06 | loss:-0.2732 | nelbo:-0.2180 | 2:32:13.32
+[SB backward] stage 10/10 | ep 4/6 | iter 461/720 | lr:3.38e-06 | loss:-0.2535 | nelbo:-0.1961 | 2:32:18.10
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  12%|██▍                | 5/40 [00:00<00:00, 46.02it/s]Forward SDE sampling...:  28%|████▉             | 11/40 [00:00<00:00, 50.36it/s]Forward SDE sampling...:  42%|███████▋          | 17/40 [00:00<00:00, 51.76it/s]Forward SDE sampling...:  57%|██████████▎       | 23/40 [00:00<00:00, 52.40it/s]Forward SDE sampling...:  72%|█████████████     | 29/40 [00:00<00:00, 52.75it/s]Forward SDE sampling...:  88%|███████████████▊  | 35/40 [00:00<00:00, 52.97it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 52.32it/s]
+[SB backward] stage 10/10 | ep 5/6 | iter 481/720 | lr:3.35e-06 | loss:-0.2221 | nelbo:-0.1637 | 2:32:21.00
+[SB backward] stage 10/10 | ep 5/6 | iter 531/720 | lr:3.35e-06 | loss:-0.2762 | nelbo:-0.2172 | 2:32:25.70
+[SB backward] stage 10/10 | ep 5/6 | iter 581/720 | lr:3.35e-06 | loss:-0.2697 | nelbo:-0.2117 | 2:32:30.47
+Forward SDE sampling...:   0%|                           | 0/40 [00:00<?, ?it/s]Forward SDE sampling...:  12%|██▍                | 5/40 [00:00<00:00, 47.16it/s]Forward SDE sampling...:  28%|████▉             | 11/40 [00:00<00:00, 50.69it/s]Forward SDE sampling...:  42%|███████▋          | 17/40 [00:00<00:00, 51.75it/s]Forward SDE sampling...:  57%|██████████▎       | 23/40 [00:00<00:00, 52.24it/s]Forward SDE sampling...:  72%|█████████████     | 29/40 [00:00<00:00, 52.28it/s]Forward SDE sampling...:  88%|███████████████▊  | 35/40 [00:00<00:00, 52.54it/s]Forward SDE sampling...: 100%|██████████████████| 40/40 [00:00<00:00, 52.08it/s]
+[SB backward] stage 10/10 | ep 6/6 | iter 601/720 | lr:3.33e-06 | loss:-0.1871 | nelbo:-0.1270 | 2:32:33.38
+[SB backward] stage 10/10 | ep 6/6 | iter 651/720 | lr:3.33e-06 | loss:-0.2334 | nelbo:-0.1730 | 2:32:38.18
+[SB backward] stage 10/10 | ep 6/6 | iter 701/720 | lr:3.33e-06 | loss:-0.2421 | nelbo:-0.1800 | 2:32:42.99
+  0%|                                                                         | 0/1 [00:00<?, ?it/s]100%|█████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  1.91it/s]100%|█████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  1.91it/s]
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  40%|██████▍         | 16/40 [00:00<00:00, 154.03it/s]backward SDE sampling...:  80%|████████████▊   | 32/40 [00:00<00:00, 155.06it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 156.71it/s]/home/caohaoqun/CSBI_replicant/runner.py:372: UserWarning: torch.nn.utils.clip_grad_norm is now deprecated in favor of torch.nn.utils.clip_grad_norm_.
+  torch.nn.utils.clip_grad_norm(policy.parameters(), opt.grad_clip)
+
+[SB forward] stage 10/10 | ep 1/6 | iter 1/720 | lr:6.03e-07 | loss:-0.0058 | nelbo:3.5672 | 2:32:47.80
+[SB forward] stage 10/10 | ep 1/6 | iter 51/720 | lr:6.03e-07 | loss:-0.0077 | nelbo:3.9362 | 2:32:59.58
+[SB forward] stage 10/10 | ep 1/6 | iter 101/720 | lr:6.03e-07 | loss:-0.0068 | nelbo:3.5150 | 2:33:11.32
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  38%|██████          | 15/40 [00:00<00:00, 147.06it/s]backward SDE sampling...:  78%|████████████▍   | 31/40 [00:00<00:00, 152.09it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 152.18it/s]
+[SB forward] stage 10/10 | ep 2/6 | iter 121/720 | lr:5.98e-07 | loss:-0.0082 | nelbo:3.6205 | 2:33:16.50
+[SB forward] stage 10/10 | ep 2/6 | iter 171/720 | lr:5.98e-07 | loss:-0.0082 | nelbo:3.8670 | 2:33:28.27
+[SB forward] stage 10/10 | ep 2/6 | iter 221/720 | lr:5.98e-07 | loss:-0.0087 | nelbo:3.7301 | 2:33:40.11
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  38%|██████          | 15/40 [00:00<00:00, 148.05it/s]backward SDE sampling...:  78%|████████████▍   | 31/40 [00:00<00:00, 152.29it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 152.36it/s]
+[SB forward] stage 10/10 | ep 3/6 | iter 241/720 | lr:5.93e-07 | loss:-0.0053 | nelbo:3.4724 | 2:33:45.30
+[SB forward] stage 10/10 | ep 3/6 | iter 291/720 | lr:5.93e-07 | loss:-0.0079 | nelbo:3.4362 | 2:33:57.13
+[SB forward] stage 10/10 | ep 3/6 | iter 341/720 | lr:5.93e-07 | loss:-0.0077 | nelbo:3.8396 | 2:34:09.04
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  38%|██████          | 15/40 [00:00<00:00, 147.60it/s]backward SDE sampling...:  78%|████████████▍   | 31/40 [00:00<00:00, 152.08it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 152.23it/s]
+[SB forward] stage 10/10 | ep 4/6 | iter 361/720 | lr:5.89e-07 | loss:-0.0077 | nelbo:3.8839 | 2:34:14.29
+[SB forward] stage 10/10 | ep 4/6 | iter 411/720 | lr:5.89e-07 | loss:-0.0083 | nelbo:3.7724 | 2:34:26.44
+[SB forward] stage 10/10 | ep 4/6 | iter 461/720 | lr:5.89e-07 | loss:-0.0073 | nelbo:3.7205 | 2:34:38.56
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  38%|██████          | 15/40 [00:00<00:00, 149.00it/s]backward SDE sampling...:  78%|████████████▍   | 31/40 [00:00<00:00, 152.56it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 152.73it/s]
+[SB forward] stage 10/10 | ep 5/6 | iter 481/720 | lr:5.84e-07 | loss:-0.0043 | nelbo:3.5890 | 2:34:43.88
+[SB forward] stage 10/10 | ep 5/6 | iter 531/720 | lr:5.84e-07 | loss:-0.0089 | nelbo:3.8774 | 2:34:56.08
+[SB forward] stage 10/10 | ep 5/6 | iter 581/720 | lr:5.84e-07 | loss:-0.0059 | nelbo:3.8347 | 2:35:08.22
+backward SDE sampling...:   0%|                          | 0/40 [00:00<?, ?it/s]backward SDE sampling...:  38%|██████          | 15/40 [00:00<00:00, 147.16it/s]backward SDE sampling...:  78%|████████████▍   | 31/40 [00:00<00:00, 151.54it/s]backward SDE sampling...: 100%|████████████████| 40/40 [00:00<00:00, 151.61it/s]
+[SB forward] stage 10/10 | ep 6/6 | iter 601/720 | lr:5.80e-07 | loss:-0.0069 | nelbo:3.7304 | 2:35:13.48
+[SB forward] stage 10/10 | ep 6/6 | iter 651/720 | lr:5.80e-07 | loss:-0.0103 | nelbo:4.0348 | 2:35:25.45
+[SB forward] stage 10/10 | ep 6/6 | iter 701/720 | lr:5.80e-07 | loss:-0.0069 | nelbo:3.6962 | 2:35:37.38
+checkpoint saved: results/parametric_Unetv2_Transformerv2_ve_alternate_imputation_v2_dsm_imputation_v2_12_29_2023_194438_'backward_cnt'/stage_9_fb.npz
+save opt:results/parametric_Unetv2_Transformerv2_ve_alternate_imputation_v2_dsm_imputation_v2_12_29_2023_194438_'backward_cnt'/opt.yaml
+  0%|                                                                         | 0/1 [00:00<?, ?it/s]100%|█████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  1.87it/s]100%|█████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  1.87it/s]
